@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CareLink — Enhanced Healthcare Platform Demo</title>
+<style>
+  :root{
+    --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#16a34a; --danger:#ef4444;
+    --warning:#f59e0b; --info:#3b82f6; --success:#10b981;
+    --glass: rgba(255,255,255,0.03);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(180deg,#071226 0%, #08162a 100%);color:#e6eef6;min-height:100vh;padding:20px;}
+  
+  .main-container{max-width:1400px;margin:0 auto;}
+  .header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding:20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04);border-radius:14px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+  .logo{font-size:24px;font-weight:700;display:flex;align-items:center;gap:10px}
+  .pulse-indicator{width:12px;height:12px;background:var(--success);border-radius:50%;animation:pulse 2s infinite}
+  @keyframes pulse{0%{transform:scale(1);opacity:1}50%{transform:scale(1.2);opacity:0.7}100%{transform:scale(1);opacity:1}}
+  
+  .tabs{display:flex;gap:10px;margin:20px 0}
+  .tab{padding:12px 20px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);cursor:pointer;transition:all 0.3s}
+  .tab.active{background:var(--accent);color:white;border-color:var(--accent)}
+  .tab:hover{background:rgba(255,255,255,0.02)}
+  
+  .dashboard{display:grid;grid-template-columns:450px 1fr 350px;gap:20px;align-items:start}
+  .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04); padding:20px;border-radius:14px;box-shadow:0 6px 18px rgba(2,6,23,0.6);margin-bottom:20px}
+  
+  /* Enhanced Vitals */
+  .vitals-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:15px 0}
+  .vital{background:var(--card);padding:15px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);position:relative;overflow:hidden}
+  .vital::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
+  .vital.warning::before{background:var(--warning)}
+  .vital.danger::before{background:var(--danger)}
+  .vital h3{margin:0;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px}
+  .vital .val{font-size:26px;margin:8px 0;font-weight:700}
+  .vital .trend{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px}
+  .trend-up{color:var(--danger)}
+  .trend-down{color:var(--success)}
+  .trend-stable{color:var(--info)}
+  
+  /* Advanced Controls */
+  .controls{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}
+  .btn{background:var(--accent);color:white;padding:12px 16px;border-radius:10px;border:0;font-weight:600;cursor:pointer;transition:all 0.3s;font-size:14px}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,0.3)}
+  .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+  .btn.danger{background:var(--danger)}
+  .btn.warning{background:var(--warning);color:#000}
+  
+  /* Enhanced Logs */
+  .log{height:200px;overflow-y:auto;margin-top:15px;padding:15px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border-radius:10px;font-size:13px;color:var(--muted)}
+  .log-entry{margin:8px 0;padding:8px;border-radius:6px;border-left:3px solid var(--accent)}
+  .log-entry.warning{border-left-color:var(--warning);background:rgba(245,158,11,0.05)}
+  .log-entry.danger{border-left-color:var(--danger);background:rgba(239,68,68,0.05)}
+  .log-entry.success{border-left-color:var(--success);background:rgba(16,185,129,0.05)}
+  
+  /* Doctor Enhanced Cards */
+  .doctors{display:grid;grid-template-columns:1fr;gap:12px;margin-top:15px}
+  .doctor{padding:15px;border-radius:12px;background:var(--card);border:1px solid rgba(255,255,255,0.03);cursor:pointer;transition:all 0.3s;position:relative}
+  .doctor:hover{transform:translateY(-3px);border-color:var(--accent)}
+  .doctor.busy{opacity:0.6;cursor:not-allowed}
+  .doctor h4{margin:0;font-size:15px;font-weight:600}
+  .doctor .meta{color:var(--muted);font-size:12px;margin:6px 0}
+  .doctor .rating{display:flex;gap:2px;margin-top:8px}
+  .star{color:#fbbf24;font-size:14px}
+  .availability{position:absolute;top:15px;right:15px;width:10px;height:10px;border-radius:50%;background:var(--success)}
+  .availability.busy{background:var(--danger)}
+  
+  /* Enhanced Workflow */
+  .workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:15px}
+  .step{padding:15px;border-radius:12px;background:var(--card);border:1px solid rgba(255,255,255,0.03);text-align:center;position:relative}
+  .step.active{border-color:var(--accent);background:rgba(22,163,74,0.05)}
+  .step.completed{border-color:var(--success);background:rgba(16,185,129,0.05)}
+  .step .step-number{width:30px;height:30px;border-radius:50%;background:var(--accent);color:white;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-weight:700}
+  .step.completed .step-number{background:var(--success)}
+  .step .big{font-size:14px;font-weight:600;margin-top:8px}
+  
+  /* Enhanced Delivery Tracking */
+  .delivery-card{background:var(--card);border-radius:12px;padding:20px;margin-top:15px}
+  .delivery-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+  .delivery-progress{height:8px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;margin:15px 0}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--success));transition:width 0.3s;border-radius:4px}
+  .delivery-map{height:120px;background:linear-gradient(45deg,#1e3a8a,#3730a3);border-radius:8px;position:relative;margin:15px 0;overflow:hidden}
+  .map-marker{position:absolute;width:12px;height:12px;border-radius:50%;animation:mapPulse 2s infinite}
+  .marker-patient{background:var(--info);top:30%;left:20%}
+  .marker-doctor{background:var(--success);top:60%;left:60%}
+  .marker-delivery{background:var(--warning);top:45%;left:40%}
+  @keyframes mapPulse{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,255,255,0.4)}70%{transform:scale(1);box-shadow:0 0 0 10px rgba(255,255,255,0)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+  
+  /* Patient Profile Enhanced */
+  .patient-profile{background:var(--card);padding:20px;border-radius:12px;margin-bottom:20px}
+  .profile-header{display:flex;gap:15px;align-items:center;margin-bottom:15px}
+  .avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--success));display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:white}
+  .patient-info h3{margin:0;font-size:18px}
+  .patient-info .meta{color:var(--muted);font-size:13px;margin-top:5px}
+  
+  /* Health Analytics */
+  .analytics-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:20px 0}
+  .metric{background:var(--card);padding:15px;border-radius:10px;text-align:center}
+  .metric-value{font-size:24px;font-weight:700;color:var(--accent)}
+  .metric-label{font-size:12px;color:var(--muted);margin-top:5px}
+  
+  /* Notifications */
+  .notification{position:fixed;top:100px;right:20px;background:white;color:#000;padding:15px 20px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.3);animation:slideIn 0.3s ease;z-index:1000;max-width:350px;border-left:4px solid var(--accent)}
+  .notification.warning{border-left-color:var(--warning)}
+  .notification.danger{border-left-color:var(--danger)}
+  @keyframes slideIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+  
+  /* Responsive */
+  @media (max-width:1200px){.dashboard{grid-template-columns:1fr 1fr}}
+  @media (max-width:768px){.dashboard{grid-template-columns:1fr}.tabs{flex-wrap:wrap}}
+  
+  /* Toggle Switch Enhanced */
+  .switch{width:50px;height:26px;background:rgba(255,255,255,0.1);border-radius:20px;position:relative;cursor:pointer;transition:background 0.3s}
+  .switch.on{background:var(--accent)}
+  .knob{width:22px;height:22px;border-radius:50%;background:white;position:absolute;top:2px;left:2px;transition:left 0.3s;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
+  .knob.on{left:26px}
+  
+  /* Enhanced Status Pills */
+  .status-pills{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}
+  .pill{padding:8px 12px;border-radius:20px;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
+  .pill.ok{background:rgba(16,185,129,0.1);color:var(--success);border:1px solid rgba(16,185,129,0.2)}
+  .pill.warn{background:rgba(245,158,11,0.1);color:var(--warning);border:1px solid rgba(245,158,11,0.2)}
+  .pill.danger{background:rgba(239,68,68,0.1);color:var(--danger);border:1px solid rgba(239,68,68,0.2)}
+  .pill.info{background:rgba(59,130,246,0.1);color:var(--info);border:1px solid rgba(59,130,246,0.2)}
+</style>
+</head>
+<body>
+<div class="main-container">
+  <div class="header">
+    <div class="logo">
+      <div class="pulse-indicator"></div>
+      CareLink Enhanced
+      <span style="font-size:14px;color:var(--muted);margin-left:10px">v2.0 Demo</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:20px">
+      <div style="text-align:right">
+        <div style="font-size:13px;color:var(--muted)">Connected Devices: <strong>3</strong></div>
+        <div style="font-size:13px;color:var(--muted)">System Status: <strong style="color:var(--success)">Online</strong></div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:12px;color:var(--muted)">Demo Mode</div>
+        <div style="font-size:13px;margin-top:6px;color:var(--muted)">User: <strong>Ankit Mishra</strong></div>
+        <div style="font-size:11px;color:var(--muted)">ID: CM001 | Location: Udaipur, RJ</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="monitoring">🩺 Live Monitoring</div>
+    <div class="tab" data-tab="analytics">📊 Analytics</div>
+    <div class="tab" data-tab="doctors">👨‍⚕️ Doctor Network</div>
+    <div class="tab" data-tab="delivery">🚛 Delivery Hub</div>
+    <div class="tab" data-tab="settings">⚙️ Settings</div>
+  </div>
+
+  <!-- MONITORING TAB -->
+  <div class="tab-content" id="monitoring">
+    <div class="dashboard">
+      <!-- LEFT COLUMN -->
+      <div class="left-col">
+        <div class="card">
+          <div class="patient-profile">
+            <div class="profile-header">
+              <div class="avatar">AM</div>
+              <div class="patient-info">
+                <h3>Ankit Mishra</h3>
+                <div class="meta">Age: 34 | Male | Type 2 Diabetes</div>
+                <div class="meta">Emergency Contact: +91-98765-43210</div>
+              </div>
+            </div>
+            <div class="status-pills">
+              <div class="pill ok" id="overallStatus">Stable</div>
+              <div class="pill info">Monitored 24/7</div>
+            </div>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px">
+            <div><strong>Live Vitals Stream</strong><div class="subtitle" style="color:var(--muted);font-size:12px">Real-time wearable data</div></div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="font-size:12px;color:var(--muted)">Data Sharing</span>
+              <div id="consent" class="switch on">
+                <div id="knob" class="knob on"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vitals-grid">
+            <div class="vital" id="hrVital">
+              <h3>Heart Rate</h3>
+              <div class="val" id="hr">--</div>
+              <div class="trend" id="hrTrend">
+                <span>--</span>
+              </div>
+            </div>
+            <div class="vital" id="oxVital">
+              <h3>SpO₂ Level</h3>
+              <div class="val" id="ox">--</div>
+              <div class="trend" id="oxTrend">
+                <span>--</span>
+              </div>
+            </div>
+            <div class="vital" id="tempVital">
+              <h3>Temperature</h3>
+              <div class="val" id="temp">--</div>
+              <div class="trend" id="tempTrend">
+                <span>--</span>
+              </div>
+            </div>
+            <div class="vital" id="bpVital">
+              <h3>Blood Pressure</h3>
+              <div class="val" id="bp">--/--</div>
+              <div class="trend" id="bpTrend">
+                <span>--</span>
+              </div>
+            </div>
+            <div class="vital" id="motionVital">
+              <h3>Activity</h3>
+              <div class="val" id="motion">--</div>
+              <div class="trend" id="motionTrend">
+                <span>--</span>
+              </div>
+            </div>
+            <div class="vital" id="glucoseVital">
+              <h3>Blood Glucose</h3>
+              <div class="val" id="glucose">--</div>
+              <div class="trend" id="glucoseTrend">
+                <span>--</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button id="startBtn" class="btn">▶ Start Monitoring</button>
+            <button id="stopBtn" class="btn secondary">⏹ Stop</button>
+            <button id="triggerAlert" class="btn warning">⚠ Test Alert</button>
+            <button id="emergencyBtn" class="btn danger">🚨 Emergency</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <strong>Activity & System Log</strong>
+          <div class="log" id="log">
+            <div class="log-entry"><strong>System initialized</strong> - All monitors active</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MIDDLE COLUMN -->
+      <div class="middle-col">
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px">
+            <div>
+              <strong>AI Health Assessment</strong>
+              <div style="font-size:12px;color:var(--muted)">Real-time analysis & recommendations</div>
+            </div>
+            <div class="status-pills">
+              <div class="pill ok" id="aiStatus">AI Active</div>
+            </div>
+          </div>
+
+          <div class="analytics-grid">
+            <div class="metric">
+              <div class="metric-value" id="riskScore">0.2</div>
+              <div class="metric-label">Risk Score (0-1)</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value" id="healthScore">87</div>
+              <div class="metric-label">Health Score (/100)</div>
+            </div>
+          </div>
+
+          <div class="workflow">
+            <div class="step" id="step1">
+              <div class="step-number">1</div>
+              <div style="font-size:11px;color:var(--muted)">DETECT</div>
+              <div class="big">Monitoring</div>
+            </div>
+            <div class="step" id="step2">
+              <div class="step-number">2</div>
+              <div style="font-size:11px;color:var(--muted)">ANALYZE</div>
+              <div class="big">Processing</div>
+            </div>
+            <div class="step" id="step3">
+              <div class="step-number">3</div>
+              <div style="font-size:11px;color:var(--muted)">VERIFY</div>
+              <div class="big">Waiting</div>
+            </div>
+            <div class="step" id="step4">
+              <div class="step-number">4</div>
+              <div style="font-size:11px;color:var(--muted)">ACTION</div>
+              <div class="big">Ready</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <strong>Available Doctors Network</strong>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:15px">Geo-located specialists in your area</div>
+          
+          <div class="doctors" id="doctors">
+            <!-- Doctor cards will be populated here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="right-col">
+        <div class="card">
+          <strong>Emergency Response</strong>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:15px">Instant medical assistance</div>
+          
+          <div class="status-pills">
+            <div class="pill" id="emergencyStatus">Standby</div>
+          </div>
+
+          <div style="margin:15px 0">
+            <div style="font-size:13px;color:var(--muted);margin-bottom:8px">Response Time</div>
+            <div style="font-size:20px;font-weight:700;color:var(--success)">< 5 min</div>
+          </div>
+
+          <button id="panicBtn" class="btn danger" style="width:100%;margin-top:15px">🚨 PANIC BUTTON</button>
+        </div>
+
+        <div class="delivery-card">
+          <div class="delivery-header">
+            <strong>Medicine Delivery</strong>
+            <div style="font-size:12px;color:var(--muted)">Real-time tracking</div>
+          </div>
+
+          <div id="orderStatus">No active orders</div>
+          <div class="delivery-progress" style="display:none">
+            <div class="progress-fill" id="deliveryProgress"></div>
+          </div>
+
+          <div class="delivery-map">
+            <div class="map-marker marker-patient" title="Your Location"></div>
+            <div class="map-marker marker-doctor" title="Doctor Location"></div>
+            <div class="map-marker marker-delivery" title="Delivery Agent"></div>
+          </div>
+
+          <div id="deliveryDetails" style="font-size:12px;color:var(--muted)">
+            Nearest pharmacy: MedPlus (1.2 km)
+          </div>
+        </div>
+
+        <div class="card">
+          <strong>Quick Actions</strong>
+          <div style="display:grid;gap:10px;margin-top:15px">
+            <button class="btn secondary">📞 Call Doctor</button>
+            <button class="btn secondary">💊 Refill Prescription</button>
+            <button class="btn secondary">📋 View Records</button>
+            <button id="resetBtn" class="btn secondary">🔄 Reset Demo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OTHER TABS (placeholder content) -->
+  <div class="tab-content" id="analytics" style="display:none">
+    <div class="card">
+      <h2>📊 Health Analytics Dashboard</h2>
+      <p style="color:var(--muted)">Detailed health trends, patterns, and predictive insights coming soon...</p>
+    </div>
+  </div>
+
+  <div class="tab-content" id="doctors" style="display:none">
+    <div class="card">
+      <h2>👨‍⚕️ Doctor Network Management</h2>
+      <p style="color:var(--muted)">Comprehensive doctor profiles, availability, and consultation history...</p>
+    </div>
+  </div>
+
+  <div class="tab-content" id="delivery" style="display:none">
+    <div class="card">
+      <h2>🚛 Delivery & Logistics Hub</h2>
+      <p style="color:var(--muted)">Complete delivery tracking, pharmacy network, and inventory management...</p>
+    </div>
+  </div>
+
+  <div class="tab-content" id="settings" style="display:none">
+    <div class="card">
+      <h2>⚙️ System Settings & Preferences</h2>
+      <p style="color:var(--muted)">Privacy controls, notification preferences, and device management...</p>
+    </div>
+  </div>
+
+  <div style="text-align:center;color:var(--muted);font-size:12px;margin-top:30px;padding:20px">
+    This is an enhanced demo showcasing CareLink's complete healthcare ecosystem. Real implementation would integrate with medical devices, certified doctor networks, regulated pharmacy systems, and emergency services.
+  </div>
+</div>
+
+<script>
+(() => {
+  // Enhanced DOM elements
+  const elements = {
+    // Vitals
+    hr: document.getElementById('hr'),
+    ox: document.getElementById('ox'),
+    temp: document.getElementById('temp'),
+    bp: document.getElementById('bp'),
+    motion: document.getElementById('motion'),
+    glucose: document.getElementById('glucose'),
+    
+    // Vital cards for styling
+    hrVital: document.getElementById('hrVital'),
+    oxVital: document.getElementById('oxVital'),
+    tempVital: document.getElementById('tempVital'),
+    bpVital: document.getElementById('bpVital'),
+    motionVital: document.getElementById('motionVital'),
+    glucoseVital: document.getElementById('glucoseVital'),
+    
+    // Trends
+    hrTrend: document.getElementById('hrTrend'),
+    oxTrend: document.getElementById('oxTrend'),
+    tempTrend: document.getElementById('tempTrend'),
+    bpTrend: document.getElementById('bpTrend'),
+    motionTrend: document.getElementById('motionTrend'),
+    glucoseTrend: document.getElementById('glucoseTrend'),
+    
+    // Controls
+    startBtn: document.getElementById('startBtn'),
+    stopBtn: document.getElementById('stopBtn'),
+    triggerAlert: document.getElementById('triggerAlert'),
+    emergencyBtn: document.getElementById('emergencyBtn'),
+    panicBtn: document.getElementById('panicBtn'),
+    resetBtn: document.getElementById('resetBtn'),
+    
+    // Status
+    overallStatus: document.getElementById('overallStatus'),
+    emergencyStatus: document.getElementById('emergencyStatus'),
+    aiStatus: document.getElementById('aiStatus'),
+    riskScore: document.getElementById('riskScore'),
+    healthScore: document.getElementById('healthScore'),
+    
+    // Workflow steps
+    step1: document.getElementById('step1'),
+    step2: document.getElementById('step2'),
+    step3: document.getElementById('step3'),
+    step4: document.getElementById('step4'),
+    
+    // Logs and displays
+    log: document.getElementById('log'),
+    doctors: document.getElementById('doctors'),
+    orderStatus: document.getElementById('orderStatus'),
+    deliveryProgress: document.getElementById('deliveryProgress'),
+    deliveryDetails: document.getElementById('deliveryDetails'),
+    
+    // Consent
+    consent: document.getElementById('consent'),
+    knob: document.getElementById('knob')
+  };
+
+  // Enhanced state management
+  let state = {
+    monitoring: false,
+    interval: null,
+    consent: true,
+    activeAlert: null,
+    activeOrder: null,
+    vitalsHistory: [],
+    emergencyMode: false,
+    
+    // Baseline values for learning
+    baselines: {
+      hr: 72, ox: 98, temp: 36.8, systolic: 120, diastolic: 80, motion: 6, glucose: 95
+    },
+    
+    // Current values
+    current: {
+      hr: 0, ox: 0, temp: 0, systolic: 0, diastolic: 0, motion: 0, glucose: 0
+    },
+    
+    // Trends
+    trends: {
+      hr: 'stable', ox: 'stable', temp: 'stable', bp: 'stable', motion: 'stable', glucose: 'stable'
+    }
+  };
+
+  // Enhanced doctor network
+  let doctors = [
+    { 
+      id: 1, name: 'Dr. Priya Mehta', specialty: 'Cardiologist', distance: 1.2, 
+      available: true, rating: 4.9, experience: 15, consultations: 234,
+      avatar: 'PM', phone: '+91-98765-43210'
+    },
+    { 
+      id: 2, name: 'Dr. Rajesh Kumar', specialty: 'General Medicine', distance: 1.6, 
+      available: true, rating: 4.7, experience: 12, consultations: 189,
+      avatar: 'RK', phone: '+91-98765-43211'
+    }
+]
+
+
+})
+</script>
+</body>
+</html>
