@@ -1,0 +1,238 @@
+# PulseGuard — Starter Repo (Ready-to-clone)
+
+> A production-ready starter scaffold for **PulseGuard** (formerly CareLink). This repo skeleton includes frontend (PWA + React Native), backend (FastAPI), database configs (Postgres + TimescaleDB), WebSockets, BLE integration placeholders, and AI model placeholders for both edge (TensorFlow Lite) and cloud (PyTorch).
+
+---
+
+## What's included
+
+1. `apps/backend/` — FastAPI service
+
+   * `main.py` — FastAPI app with REST + WebSocket boilerplate
+   * `app/api/` — routers: auth, vitals, alerts, doctors, orders
+   * `app/db/` — SQLAlchemy models, Alembic migrations example
+   * `app/models/ai/` — AI placeholder: `edge_model.py` (TFLite loader) and `cloud_model.py` (PyTorch trainer stub)
+   * `Dockerfile` & `docker-compose.yml` (service definitions for DB + backend)
+   * `scripts/` — dev scripts
+
+2. `apps/pwa/` — Next.js PWA
+
+   * `app/` pages: dashboard, alerts, doctor map
+   * Socket.IO client integration
+   * Tailwind + shadcn/ui setup (example components)
+
+3. `apps/mobile/` — Expo React Native app
+
+   * BLE placeholder using `react-native-ble-plx`
+   * Socket.IO client for realtime alerts
+   * Example screens: Vitals, Alert, Consent, Map
+
+4. `packages/shared/` — shared TypeScript types and utilities
+
+   * `types/` — shared interfaces for Vitals, Alert, Doctor
+   * `utils/` — date formatting, API client
+
+5. `infra/` — deployment configs
+
+   * GitHub Actions workflow for CI (lint, tests, build)
+   * Docker compose for local dev (postgres + timescaledb + backend)
+
+6. `README.md` — setup instructions, env examples, commands
+
+---
+
+## Quickstart (local dev)
+
+1. Clone the starter repo (after you create/get it):
+
+```bash
+git clone https://github.com/YOUR-ORG/pulseguard-starter.git
+cd pulseguard-starter
+```
+
+2. Start local services with Docker (Postgres + Timescale):
+
+```bash
+cd infra
+docker compose up -d
+```
+
+3. Backend (FastAPI)
+
+```bash
+cd apps/backend
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+# Initialize DB (Alembic / migrations)
+# Start backend
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+
+4. PWA (Next.js)
+
+```bash
+cd apps/pwa
+npm install
+npm run dev
+# Open http://localhost:3000
+```
+
+5. Mobile (Expo)
+
+```bash
+cd apps/mobile
+npm install
+npx expo start
+# Use Expo Go on your phone or an emulator
+```
+
+---
+
+## Backend: important files (snippets)
+
+### `apps/backend/main.py` (boilerplate)
+
+```python
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
+
+from app.api import router as api_router
+
+app = FastAPI(title="PulseGuard API")
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
+app.include_router(api_router, prefix="/api")
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+```
+
+### `apps/backend/app/models/ai/edge_model.py` (TensorFlow Lite placeholder)
+
+```python
+# edge_model.py
+# Placeholder for loading a TFLite model on-device or in edge container
+
+import numpy as np
+try:
+    import tflite_runtime.interpreter as tflite
+except Exception:
+    # fallback: if full TF is installed
+    import tensorflow as tf
+    tflite = None
+
+class EdgeModel:
+    def __init__(self, model_path: str):
+        self.model_path = model_path
+        self.interpreter = None
+        self.load_model()
+
+    def load_model(self):
+        try:
+            if tflite:
+                self.interpreter = tflite.Interpreter(model_path=self.model_path)
+            else:
+                self.interpreter = tf.lite.Interpreter(model_path=self.model_path)
+            self.interpreter.allocate_tensors()
+        except Exception as e:
+            print("TFLite load error:", e)
+
+    def predict(self, sample: dict) -> dict:
+        # sample: {hr, ox, temp, motion}
+        # Convert to input tensor, run interpreter, return dict {score,level}
+        return {"score": 0.0, "level": "green"}
+```
+
+### `apps/backend/app/models/ai/cloud_model.py` (PyTorch stub)
+
+```python
+# cloud_model.py
+import torch
+import torch.nn as nn
+
+class SimpleNet(nn.Module):
+    def __init__(self, input_dim=4, hidden=16):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(input_dim, hidden),
+            nn.ReLU(),
+            nn.Linear(hidden, 8),
+            nn.ReLU(),
+            nn.Linear(8, 1),
+            nn.Sigmoid()
+        )
+
+    def forward(self, x):
+        return self.net(x)
+
+# trainer stub
+def train_mock():
+    model = SimpleNet()
+    # placeholder training loop
+    return model
+```
+
+### WebSocket (Socket.IO) example
+
+`apps/backend/app/api/notifications.py` snippet
+
+```python
+from fastapi import APIRouter
+import socketio
+
+sio = socketio.AsyncServer(async_mode='asgi')
+router = APIRouter()
+
+# ASGI app needs to mount socketio separately in main.py
+
+@router.post('/alerts')
+async def create_alert(payload: dict):
+    # store alert in DB, emit to doctors
+    await sio.emit('alert:new', payload, namespace='/alerts')
+    return {"ok": True}
+```
+
+## Frontend: PWA + Mobile
+
+* PWA includes a dashboard that connects to `ws://localhost:8000/alerts` and lists incoming alerts, with map pins (Google Maps) and accept buttons for doctors.
+* Mobile app simulates wearable via BLE placeholder, streams vitals to backend endpoint `/api/vitals/ingest`, and listens on Socket.IO for alert updates.
+
+## Database: Schema suggestions
+
+* `users` (id, name, email, phone, role)
+* `patients` (id, user\_id, baseline\_meta, consent\_flag)
+* `devices` (id, patient\_id, device\_type, last\_seen)
+* `vitals` (ts, device\_id, hr, ox, temp, motion) — use Timescale hypertable
+* `alerts` (id, patient\_id, sample, score, level, status)
+* `doctors` (id, user\_id, specialties, availability, location)
+* `orders` (id, alert\_id, pharmacy\_id, rider\_id, status)
+
+## AI placeholders & model lifecycle
+
+1. **Edge model (TFLite)** – lightweight inference running on device or edge container for near-zero latency alerts. Use `edge_model.py` to load .tflite file and output severity.
+2. **Cloud model (PyTorch)** – aggregate historical time-series for model training (user baselines, personalization). Use `cloud_model.py` as starting point.
+3. **Federated / privacy-preserving** – later iterations: federated learning (PySyft or TensorFlow Federated) to avoid raw data centralization.
+
+## Security & Privacy (must-haves for MVP)
+
+* TLS everywhere (HTTPS + WSS)
+* Encrypt sensitive fields at rest
+* RBAC for doctor/patient/admin roles
+* Consent management UI & server-side enforcement
+* Immutable audit logs (append-only) for access
+
+## CI/CD & Deployment
+
+* GitHub Actions workflows included for:
+
+  * Lint & tests
+  * Docker build for backend
+  * Deploy to Vercel (PWA) and Railway/Render (backend)
+
+## What I can deliver next
+
+* A fully populated GitHub repo (pushed to your GitHub) with this scaffold (FastAPI app, Next.js PWA, Expo app) for immediate cloning.
+* OR, I can generate a ZIP of the scaffold you can download.
+
+Tell me which option you prefer and the GitHub username/org to push to (if you want me to create the repo). If you'd rather handle Git yourself, I can produce the ZIP and exact commands to initialize locally.
