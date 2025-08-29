@@ -32,30 +32,19 @@ nums contains distinct values sorted in ascending order.
 -104 <= target <= 104
 """
 
-nums = list(map(int,input("Enter list of values ::: ").split(',')))
+nums = list(map(int, input("Enter list of values ::: ").split(',')))
 target = int(input('Enter target value ::  '))
 
-result_index = 0
+nums.sort()
+
+result_index = len(nums)   
 
 for i in range(len(nums)):
-    flag = True
-    if target == nums[i]:
+    if nums[i] >= target:   
         result_index = i
-        flag = False
         break
 
-    elif target < nums[i]:
-        result_index = i - 1
-        nums.insert(result_index, target)
-        flag = False
-        break
-
-    elif target > nums[i]:
-        result_index = i + 1
-        nums.insert(result_index, target)
-        flag = False
-        break
-
+nums.insert(result_index, target)
 
 print('nums ==<<>>', nums)
 print('result_index ==<<<>>', result_index)
