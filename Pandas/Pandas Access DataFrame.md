@@ -1,1 +1,0 @@
-Accessing a Dataframe in pandas involves retrieving, exploring, and manipulating data stored within this structure. The most basic form of accessing a DataFrame is simply referring to it by its variable name. 
