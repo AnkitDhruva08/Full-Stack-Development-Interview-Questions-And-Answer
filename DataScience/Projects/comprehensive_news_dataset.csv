@@ -1,0 +1,56 @@
+text,label,category,text_length,word_count,exclamation_count,caps_ratio
+Scientists at MIT have developed a new renewable energy technology that could revolutionize solar power generation with 40% improved efficiency.,0,Politics/Economy,144,20,0,0.027777777777777776
+The Federal Reserve announced a quarter-point interest rate increase following the latest economic data showing steady inflation control.,0,Politics/Economy,137,18,0,0.021897810218978103
+"Local authorities report successful completion of the new public transportation project, connecting three major districts in the city.",0,Politics/Economy,134,18,0,0.007462686567164179
+Climate researchers publish findings in Nature journal showing accelerated ice melting in Antarctic regions over the past decade.,0,Politics/Economy,129,18,0,0.023255813953488372
+"The Supreme Court heard arguments today regarding privacy rights in digital communications, with a decision expected next quarter.",0,Politics/Economy,130,18,0,0.023076923076923078
+Medical researchers at Johns Hopkins University announce breakthrough in early detection methods for pancreatic cancer through blood tests.,0,Politics/Economy,139,18,0,0.02877697841726619
+International trade negotiations between allied nations continue as officials work toward mutually beneficial economic agreements.,0,Politics/Economy,130,15,0,0.007692307692307693
+NASA confirms successful deployment of the James Webb Space Telescope's latest observations revealing new exoplanet discoveries.,0,Politics/Economy,128,16,0,0.0625
+Local school district implements new STEM education program with funding from state government and private technology partnerships.,0,Politics/Economy,131,17,0,0.03816793893129771
+Economic indicators suggest moderate growth in manufacturing sector as supply chain issues show signs of resolution.,0,Politics/Economy,116,16,0,0.008620689655172414
+University researchers publish peer-reviewed study on sustainable agriculture practices reducing water consumption by 30%.,0,Politics/Economy,122,14,0,0.00819672131147541
+City council approves budget allocation for infrastructure improvements including road repairs and water system upgrades.,0,Politics/Economy,121,15,0,0.008264462809917356
+Health officials provide updated vaccination guidelines based on latest clinical trial data and epidemiological studies.,0,Politics/Economy,120,15,0,0.008333333333333333
+Technology companies announce collaborative effort to improve cybersecurity standards across critical infrastructure sectors.,0,Politics/Economy,125,13,0,0.008
+Environmental protection agency releases annual report showing measurable improvements in air quality in urban areas.,0,Politics/Economy,117,15,0,0.008547008547008548
+Federal investigators conclude comprehensive review of financial regulations affecting small business lending practices.,0,Politics/Economy,120,13,0,0.008333333333333333
+Archaeological team uncovers significant historical artifacts providing new insights into ancient Mediterranean civilizations.,0,Politics/Economy,126,13,0,0.015873015873015872
+Public health authorities confirm seasonal flu vaccination campaign reaches target coverage rates across vulnerable populations.,0,Politics/Economy,128,15,0,0.0078125
+Transportation department announces completion of highway safety improvements reducing traffic accidents by 25% in pilot areas.,0,Politics/Economy,127,16,0,0.007874015748031496
+Central bank officials indicate gradual approach to monetary policy adjustments based on employment and inflation metrics.,0,Politics/Economy,122,16,0,0.00819672131147541
+Peer-reviewed research published in Science journal demonstrates new carbon capture technology efficiency improvements.,0,Science/Research,119,13,0,0.01680672268907563
+Clinical trial results show promising outcomes for new Alzheimer's treatment in phase two testing.,0,Science/Research,98,14,0,0.02040816326530612
+Geological survey reveals previously unknown mineral deposits with potential technological applications in electronics.,0,Science/Research,119,13,0,0.008403361344537815
+Marine biologists document recovery of coral reef ecosystems following conservation intervention programs.,0,Science/Research,106,12,0,0.009433962264150943
+Astrophysicists confirm detection of gravitational waves from neutron star collision using advanced instrumentation.,0,Science/Research,116,13,0,0.008620689655172414
+SHOCKING! Secret government experiment turns ordinary people into superhuman beings! Scientists don't want you to know this!,1,Sensational/Clickbait,124,17,3,0.08064516129032258
+BREAKING: Billionaire reveals one simple trick that made him rich overnight! Banks hate this method!,1,Sensational/Clickbait,100,15,2,0.1
+EXCLUSIVE: Aliens have been living among us for decades! Government finally admits the truth!,1,Sensational/Clickbait,93,14,2,0.11827956989247312
+MIRACLE CURE: Local grandmother discovers ancient remedy that cures cancer in 3 days! Doctors are furious!,1,Sensational/Clickbait,106,16,2,0.12264150943396226
+URGENT: New law will take away your savings! Share this before it's too late!,1,Sensational/Clickbait,77,14,2,0.1038961038961039
+UNBELIEVABLE: Man loses 50 pounds in one week using this weird trick! Nutritionists are speechless!,1,Sensational/Clickbait,99,15,2,0.1414141414141414
+CONSPIRACY EXPOSED: Major food companies have been poisoning us for years! The truth revealed!,1,Sensational/Clickbait,94,14,2,0.20212765957446807
+INCREDIBLE: Woman wins lottery 7 times using this secret method! Officials want to ban it!,1,Sensational/Clickbait,90,15,2,0.13333333333333333
+DANGER: Your smartphone is slowly killing you! This device can save your life!,1,Sensational/Clickbait,78,13,2,0.10256410256410256
+AMAZING: Scientists discover fountain of youth in remote jungle! Age reversal possible!,1,Sensational/Clickbait,87,12,2,0.10344827586206896
+TERRIBLE NEWS: Economic collapse predicted for next month! Prepare yourself now!,1,Sensational/Clickbait,80,11,2,0.175
+REVOLUTIONARY: New energy device powers entire house for free! Energy companies are panicking!,1,Sensational/Clickbait,94,13,2,0.1595744680851064
+HORRIFYING: Deadly chemicals found in popular foods! Your family is at risk!,1,Sensational/Clickbait,76,12,2,0.15789473684210525
+BREAKING: Celebrity reveals shocking secret about Hollywood elite! You won't believe this!,1,Sensational/Clickbait,90,12,2,0.12222222222222222
+MIRACLE: Blind woman sees again after taking this natural supplement! Doctors can't explain it!,1,Sensational/Clickbait,95,14,2,0.09473684210526316
+EXPOSED: Social media giants are controlling your thoughts! Here's how to break free!,1,Sensational/Clickbait,85,13,2,0.10588235294117647
+INCREDIBLE: Time traveler from 2050 warns about upcoming disaster! Government tries to silence him!,1,Sensational/Clickbait,99,14,2,0.12121212121212122
+SHOCKING: Popular restaurant chain uses fake meat made from insects! Customers demand answers!,1,Sensational/Clickbait,94,13,2,0.10638297872340426
+URGENT WARNING: New virus more dangerous than COVID spreading rapidly! Mainstream media ignores it!,1,Sensational/Clickbait,99,14,2,0.20202020202020202
+AMAZING DISCOVERY: Lost city of Atlantis found! Archaeologists confirm ancient technology!,1,Sensational/Clickbait,90,11,2,0.2111111111111111
+Doctors discovered this one weird trick to cure diabetes naturally without medication or diet changes.,1,Health/Medical,102,15,0,0.00980392156862745
+Big pharma doesn't want you to know about this miracle plant that cures all diseases instantly.,1,Health/Medical,95,16,0,0.010526315789473684
+Shocking study reveals vaccines contain mind control chips implanted by secret organizations worldwide.,1,Health/Medical,103,13,0,0.009708737864077669
+Local mom discovers coffee ingredient that melts belly fat overnight while you sleep peacefully.,1,Health/Medical,96,14,0,0.010416666666666666
+Ancient Tibetan monks reveal secret breathing technique that adds 20 years to your lifespan.,1,Health/Medical,92,14,0,0.021739130434782608
+You'll never guess what this celebrity looks like now! The transformation will shock you completely!,1,Entertainment/Viral,100,15,2,0.02
+This simple quiz reveals your exact death date! Take it before it gets banned forever!,1,Entertainment/Viral,86,15,2,0.023255813953488372
+Homeless man turns out to be secret millionaire! His story will make you cry tears!,1,Entertainment/Viral,83,15,2,0.024096385542168676
+Teachers hate her! Student discovers study method that guarantees perfect grades without effort!,1,Entertainment/Viral,96,13,2,0.020833333333333332
+This optical illusion reveals your true personality! Share with friends to compare results!,1,Entertainment/Viral,91,13,2,0.02197802197802198
