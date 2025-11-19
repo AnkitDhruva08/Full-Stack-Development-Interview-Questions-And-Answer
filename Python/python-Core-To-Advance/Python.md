@@ -111,3 +111,167 @@
 20. Write a Python program to calculate the factorial of numbers concurrently using threads.  
 
 ---
+
+
+
+
+
+🅰️ PYTHON CORE — FUNDAMENTALS TO ADVANCED
+1. Basics & Data Types
+
+What are Python’s mutable and immutable data types?
+
+Difference between list, tuple, set, and dictionary.
+
+What are comprehensions? Explain list, dict, and set comprehensions.
+
+What are iterators and generators? How do they differ?
+
+How does yield work? When do you use it?
+
+Explain the difference between shallow and deep copy.
+
+Explain the difference between is and ==.
+
+What are *args and **kwargs used for?
+
+What is the difference between a global variable and a local variable?
+
+Explain Python’s memory management (reference counting, garbage collection).
+
+2. Functions & Scoping
+
+What are first-class functions in Python?
+
+What is a closure? Give a practical example.
+
+What is recursion? When should you avoid it?
+
+Explain the LEGB rule (Local, Enclosing, Global, Built-in).
+
+What is lambda function? When is it useful?
+
+How to use functools.lru_cache()?
+
+What are higher-order functions?
+
+3. Decorators & Context Managers
+
+What are decorators in Python?
+
+How to write a custom decorator with parameters?
+
+How are decorators used in Django (e.g., @login_required, @api_view)?
+
+Explain context managers and the with statement.
+
+How to create your own context manager (using __enter__ and __exit__)?
+
+Difference between contextlib.contextmanager and class-based context managers.
+
+4. Error Handling & Exceptions
+
+What is exception handling in Python?
+
+What’s the difference between Exception, BaseException, and Error?
+
+How do you create custom exceptions?
+
+Explain the finally and else clauses in exception handling.
+
+What are some best practices for handling exceptions in production APIs?
+
+How to raise exceptions in Django views or DRF serializers?
+
+5. File Handling
+
+How to read and write files in Python?
+
+Difference between r, rb, w, a modes.
+
+How to handle large files efficiently (e.g., file streaming)?
+
+How to handle JSON, CSV, and XML in Python?
+
+How to read/write binary data (images, PDFs, etc.)?
+
+How to use file context manager (with open(...) as f)?
+
+How to upload/download files in Django REST Framework?
+
+6. Multithreading, Multiprocessing, AsyncIO
+
+What is the GIL (Global Interpreter Lock)? Why does it exist?
+
+When to use threading vs multiprocessing?
+
+How does asyncio work?
+
+Explain the difference between synchronous and asynchronous programming.
+
+How would you implement parallel API calls?
+
+What are Futures, Tasks, and Event Loops in asyncio?
+
+What are async views in Django (since 3.1+)?
+
+7. Data Structures & Algorithms
+
+How do you implement a stack and queue using Python?
+
+How to remove duplicates from a list efficiently?
+
+How to find missing numbers in a list from 1–N?
+
+Implement a binary search algorithm.
+
+Find the longest substring without repeating characters.
+
+Merge two sorted arrays without extra space.
+
+What’s the time complexity of dictionary lookups in Python?
+
+How does Python’s hash table (dict) work internally?
+
+🅱️ OBJECT-ORIENTED PROGRAMMING (OOP)
+1. OOP Concepts
+
+What is Object-Oriented Programming?
+
+Difference between class and object.
+
+What are constructors (__init__)?
+
+What is encapsulation? Give an example.
+
+What is inheritance? Explain single, multiple, and multilevel inheritance.
+
+What is polymorphism?
+
+What is abstraction?
+
+What are class methods, static methods, and instance methods?
+
+Difference between @classmethod and @staticmethod.
+
+How to use super() in Python?
+
+What are __str__, __repr__, and other dunder methods?
+
+What is method overriding and overloading?
+
+What is composition vs inheritance?
+
+2. Advanced OOP
+
+What is metaclass in Python?
+
+Explain the concept of descriptors.
+
+How does the singleton pattern work in Python?
+
+What are dataclasses and why are they useful?
+
+Explain the use of abc and abstractmethod in defining abstract classes.
+
+How to design a plugin-based system using OOP in Python?
