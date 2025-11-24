@@ -1,0 +1,18 @@
+{
+  "findings": {
+    "agents_json_found": false,
+    "agents": [],
+    "http_status": {
+      "https://chatgpt.com/.well-known/agents.json": 404
+    },
+    "errors": [
+      "https://chatgpt.com/.well-known/agents.json: 404 Client Error: Not Found for url: https://chatgpt.com/.well-known/agents.json"
+    ]
+  },
+  "recommendations": [
+    "Implement agents.json with valid OpenAPI URLs."
+  ],
+  "score": 0,
+  "status": "Not Ready",
+  "endpoint_costs": {}
+}
