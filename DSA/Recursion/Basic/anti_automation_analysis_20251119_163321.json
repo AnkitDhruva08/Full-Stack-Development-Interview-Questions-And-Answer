@@ -1,0 +1,273 @@
+{
+  "url": "https://gemini.google.com/app",
+  "score": 30,
+  "classification": "BLOCKED",
+  "readiness_level": "High failure risk",
+  "issues": [
+    "Cloudflare bot protection detected (medium confidence)",
+    "Perimeterx bot protection detected (medium confidence)",
+    "Akamai bot protection detected (medium confidence)",
+    "Advanced fingerprinting detected (0 techniques)",
+    "Obfuscated JavaScript detected (anti-debugging)"
+  ],
+  "recommendations": [
+    "Consider API access or specialized bypass for Cloudflare",
+    "Consider API access or specialized bypass for Perimeterx",
+    "Consider API access or specialized bypass for Akamai",
+    "Reduce fingerprinting for legitimate automation use cases",
+    "Implement JavaScript execution analysis"
+  ],
+  "detailed_analysis": {
+    "ua_discrimination": {
+      "bot_blocked": false,
+      "headless_blocked": false,
+      "mobile_different": false,
+      "legacy_different": false,
+      "response_time_variance": 0.07914447784423828
+    },
+    "bot_protection": {
+      "cloudflare": {
+        "service_name": "Cloudflare",
+        "confidence": "medium",
+        "risk_level": "high",
+        "content_matches": [],
+        "header_matches": [
+          "Server: server"
+        ],
+        "evidence_count": 1
+      },
+      "perimeterx": {
+        "service_name": "Perimeterx",
+        "confidence": "medium",
+        "risk_level": "high",
+        "content_matches": [],
+        "header_matches": [
+          "Server: server"
+        ],
+        "evidence_count": 1
+      },
+      "akamai": {
+        "service_name": "Akamai",
+        "confidence": "medium",
+        "risk_level": "medium",
+        "content_matches": [],
+        "header_matches": [
+          "Server: server"
+        ],
+        "evidence_count": 1
+      }
+    },
+    "fingerprinting": {
+      "patterns_detected": [],
+      "pattern_count": 0,
+      "obfuscated_scripts": 5,
+      "risk_level": "high",
+      "techniques_identified": []
+    },
+    "rate_limiting": {
+      "detected": false,
+      "severity": "none",
+      "indicators": [],
+      "recommendation": "No rate limiting detected"
+    },
+    "robots_txt": {
+      "exists": false,
+      "accessible": false,
+      "error": "list index out of range",
+      "restrictive": false,
+      "risk_level": "low"
+    },
+    "javascript_analysis": {
+      "obfuscated_javascript": {
+        "detected": true,
+        "pattern_count": 15,
+        "risk_level": "medium"
+      }
+    }
+  },
+  "execution_time": 2.0194602012634277,
+  "timestamp": "2025-11-19 16:32:11",
+  "ua_analysis": {
+    "desktop_chrome": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "X-Frame-Options": "DENY",
+        "Vary": "Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site",
+        "Content-Security-Policy": "report-uri /_/BardChatUi/cspreport;script-src * 'unsafe-inline' 'unsafe-eval' blob: data: https://www.googletagmanager.com;object-src * 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com;worker-src * 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com;img-src https://*.google.com https://*.googleusercontent.com https://*.gstatic.com https://*.youtube.com https://*.youtube-nocookie.com https://*.ytimg.com https://*.ggpht.com https://bard.datacommons.org blob: data: https://*.googleapis.com https://www.googletagmanager.com https://*.googletagmanager.com https://www.google.com https://google.com https://googleads.g.doubleclick.net;media-src https://*.google.com https://*.googleusercontent.com https://*.gstatic.com https://*.youtube.com https://*.youtube-nocookie.com https://*.ytimg.com https://*.ggpht.com https://bard.datacommons.org blob: https://*.googlevideo.com https://*.googleapis.com https://www.googletagmanager.com;child-src 'self' https://*.google.com https://*.scf.usercontent.goog https://www.youtube.com https://www.youtube-nocookie.com https://docs.google.com/picker/v2/home blob: https://www.googletagmanager.com;frame-src 'self' https://*.google.com https://*.scf.usercontent.goog https://www.youtube.com https://www.youtube-nocookie.com https://docs.google.com/picker/v2/home blob: https://www.googletagmanager.com https://bid.g.doubleclick.net https://td.doubleclick.net;connect-src 'self' https://*.google.com https://*.gstatic.com https://*.google-analytics.com https://csp.withgoogle.com/csp/proto/BardChatUi https://content-push.googleapis.com/upload/ https://*.googleusercontent.com https://ogads-pa.googleapis.com/ https://*.youtube.com https://*.youtube-nocookie.com https://*.googlevideo.com data: https://static.corp.google.com/external_content/scs_corp/bard/artifacts https://*.googleapis.com https://www.googletagmanager.com;style-src 'report-sample' 'unsafe-inline' https://www.gstatic.com https://fonts.googleapis.com https://www.googletagmanager.com;font-src https://fonts.gstatic.com https://www.gstatic.com https://www.googletagmanager.com;form-action https://ogs.google.com https://onegoogle-autopush.sandbox.google.com https://onegoogle-staging.sandbox.google.com https://www.googletagmanager.com https://studio.firebase.google.com/run.api;default-src https://www.googletagmanager.com;manifest-src https://www.googletagmanager.com, require-trusted-types-for 'script';report-uri /_/BardChatUi/cspreport, script-src 'report-sample' 'nonce-4nhLv3o6pLKXRQHvRwYhiQ' 'unsafe-inline' 'unsafe-eval';object-src 'none';base-uri 'self';report-uri /_/BardChatUi/cspreport;worker-src 'self' blob:, script-src 'unsafe-inline' 'unsafe-eval' blob: data: 'self' https://apis.google.com https://ssl.gstatic.com https://www.google.com https://www.googletagmanager.com https://www.gstatic.com https://www.google-analytics.com https://maps.googleapis.com https://fonts.gstatic.com https://www.youtube.com/iframe_api https://www.youtube.com/s/player/ https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com/tools/feedback/ https://www.gstatic.com/feedback/js/ https://www.gstatic.com/inproduct_help/ https://www.gstatic.com/support/content/ https://www.gstatic.com/uservoice/feedback/client/web/live/ https://www.gstatic.com/uservoice/surveys/resources/prod/js/survey/ https://support.google.com/inapp/;report-uri /_/BardChatUi/cspreport/allowlist",
+        "x-ua-compatible": "IE=edge",
+        "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "Date": "Wed, 19 Nov 2025 11:02:10 GMT",
+        "P3P": "CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"",
+        "Cross-Origin-Opener-Policy": "same-origin-allow-popups",
+        "Cross-Origin-Resource-Policy": "same-site",
+        "Accept-CH": "Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version",
+        "Content-Security-Policy-Report-Only": "script-src 'unsafe-inline' 'unsafe-eval' blob: data: https://www.googleadservices.com/pagead/conversion/ https://www.googletagmanager.com/gtag/js https://www.googletagmanager.com/gtag/destination https://www.google.com/js/bg/ https://www.gstatic.com/external_hosted/highlightjs/highlight.pack.js https://www.gstatic.com/monaco_editor/ https://fonts.gstatic.com/s/e/notoemoji/search/wrapper.js https://www.youtube.com/iframe_api https://translate.google.com/translate_a/element.js https://www-onepick-opensocial.googleusercontent.com/gadgets/js/rpc.js https://www.gstatic.com/_/mss/boq-one-google/_/ https://www.gstatic.com/og/_/js/ https://apis.google.com/js/api.js https://apis.google.com/js/client.js https://www.google.com/tools/feedback/chat_load.js https://www.google.com/tools/feedback/help_api.js https://www.google.com/tools/feedback/load.js https://www.google.com/tools/feedback/open.js https://www.google.com/tools/feedback/open_to_help_guide_lazy.js https://www.gstatic.com/feedback/js/ https://www.gstatic.com/feedback/js/help/prod/service/lazy.min.js https://www.gstatic.com/inproduct_help/api/main.min.js https://www.gstatic.com/inproduct_help/chatsupport/chatsupport_button_v2.js https://www.gstatic.com/inproduct_help/service/lazy.min.js https://www.gstatic.com/uservoice/feedback/client/web/live/ https://www.gstatic.com/uservoice/surveys/resources/prod/js/survey/ https://maps.googleapis.com/maps/api/js https://www.gstatic.com/_/mss/boq-bard-web/_/js/k=boq-bard-web.BardChatUi.en_US.lsvQnrcX050.2018.O/ https://apis.google.com/_/scs/abc-static/_/js/ https://maps.googleapis.com/maps-api-v3/api/js/ https://maps.googleapis.com/maps/vt https://maps.googleapis.com/maps/api/js/ https://maps.googleapis.com/maps/api/place/js/ https://www.youtube.com/s/player/ https://translate.googleapis.com/_/translate_http/_/js/;report-uri /_/BardChatUi/cspreport/fine-allowlist",
+        "Permissions-Policy": "ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*",
+        "reporting-endpoints": "default=\"/_/BardChatUi/web-reports?context=eJwN0HlQ1HUYx3FdfR7JBhUwRkAdYtRxEBBIxFAJBZU9vr8NSiU8OBImm1ETEFEYI9HMQMgDF8YDkcCDBMUUSslRVEwYdoF170UtjSOzpFjTTenzx2vmmXn_8TzzjG1y9R_rPSJ-pvcI2aNeGUNsQJ9MgGNBn8wJQXv7ZKHgACdUhvfLaqDtYL9MB0VD_bL9IJ88IFPDw6kDsl74wnSY9sCZ9zVUB_PiNBQJ39zTUCkchypoGtDQNfBwamgSFK8oo4NwBE7AaTgHmzeW0VYQe8ooHv5uKqPl3R20CnabO0gDpnFa6irWkhG-Pqmlo5Bp1dJ2OHdfSxch_EMdLYQ1JTpKhVaNjrQQ0qyjcPB8piMfeGtCJ3nDdLdO8oeZKZ0UCKeyO-k8hPh2UTTYkruobVMXdULjvi5qhuTobkqH3b92UyFkTNLTLvAI0JMXvBGip_FwtlpP9VD5VE81oPpHT_EgDt2jeKi4fI--hbBpBpoPbvMN5AlBCw30DkTBUogsMlAM6IsN9LzSQK8g57KBdkAb6OC3FgM9AR9vI_mC3yIjxXxiJAU83mKk3-GrbCMVwxmoh7k5RooC11wjeUBpgZGOwFl_E9VD6CwTJSeYKB1OJpqofLWJBrebaGKuiQIK0cFSb6IH8HjQRANwdchEN8B1pJnGQeoYM2XBhvFmyoDaSWY64I1ZbqYcmBJnphmw81MzHYbevWb6A0pLzFQFja1maoboR2ZaCj7TLPQ2vAiykGy2hV7BqGALhcVaKAKa11moBX7Kt9BNOF1uoTpwnLKQE8KuW2gZTBlhpaHRVnLCAi8rZc2yUleUlabIreQHP6itFJlopRh4u8BKM-DSBStdgeS_rJQODQ4rNUG9Ew3yXWz0JXhG2WgybIm1US4832qjV5BXaqN8UJptFAdrp9spBR4G26kXXsbYaeQSO5WstNMheJpvJwdUFtmpBlIcdkqHjZAJd57bqQNWj-nBn3tI7dZDy8G3e5imQ2zfMH0A5YPDVAHZn8s5D4J3ynkufF8i5ybYd0TO5fDskpwdcKJHzjXQ6KbgZohXKjgB2nMUrIPqbQquhTX7FfwxzL-q4EXQf1fBTyHxsYLXwobZSt4MnouVPBnaEpSsBTPYYcIqNKitUHJRm5IPQES7kiOh4ImS98AxqIKZMhUHQaik4rmwD_bDg5Uq_hPG7VDxREioVnES5DapOB_iPAUb5gj-KFxwdozgPPBaIngqzJELDodbCsE_g1eK4ID1gkPBkSnYJUtw2k7B66G-UPBFiCgVHAUZ5YJzYEWV4ERwnBP8H7T8KLgVFl8TvBTybgjOhx74BdpvCtZB-W3Bx8HQIdgG5V2Cj4Hrv4I94NlLwUOwxym4EHxe42bYNkrifHgxVuJhsLhLPNpD4qm-EvtBY6DEV6AsWOKjMC9U4gUwGC7xsnkSC6iNlvgCXJckvgURCRJHQgbkABVI7AK1uySug8jdEt8ukbgd-qolfgKvL0gsa8D-1xLfB527mvXgPkPNnnDNX80tIAtTM4FTpeaRQs2qbDXHwbt5an4P7mrUrIXiajUfgO_q1NwA7m-6NLQ67vCE850ViX4BqZs2J6VkZq7PzErZmBWYmpKxLnBrWmpgZlpGdlpGUmhwaFhISEh4UHBo0mdz_gcrPM5n\"",
+        "document-policy": "include-js-call-stacks-in-crash-reports",
+        "Content-Encoding": "gzip",
+        "Server": "ESF",
+        "X-XSS-Protection": "0",
+        "X-Content-Type-Options": "nosniff",
+        "Set-Cookie": "NID=526=hOZN5c2FFyrG4YFreVJowTcqt_j5Lar9_zsPt2R3S8-aqypwWIRa-EOAplzn5Tg4TP4JVxY97s-VU81SLhK33GSRspvsGtf7HuD0TDVue3MKOSei3CcZJ3Y7VEqJSUQPK3bnHw8mkNsMfBkr3FIPKAchhmQnIIlYh_mfFCjxyIDBK-MRmXyrZDbnkLditSPXT52KmnXclur-iSyH; expires=Thu, 21-May-2026 11:02:10 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=none",
+        "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "Transfer-Encoding": "chunked"
+      },
+      "elapsed": 0.7226746082305908
+    },
+    "headless_chrome": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "X-Frame-Options": "DENY",
+        "Vary": "Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site",
+        "Content-Security-Policy": "report-uri /_/BardChatUi/cspreport;script-src * 'unsafe-inline' 'unsafe-eval' blob: data: https://www.googletagmanager.com;object-src * 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com;worker-src * 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com;img-src https://*.google.com https://*.googleusercontent.com https://*.gstatic.com https://*.youtube.com https://*.youtube-nocookie.com https://*.ytimg.com https://*.ggpht.com https://bard.datacommons.org blob: data: https://*.googleapis.com https://www.googletagmanager.com https://*.googletagmanager.com https://www.google.com https://google.com https://googleads.g.doubleclick.net;media-src https://*.google.com https://*.googleusercontent.com https://*.gstatic.com https://*.youtube.com https://*.youtube-nocookie.com https://*.ytimg.com https://*.ggpht.com https://bard.datacommons.org blob: https://*.googlevideo.com https://*.googleapis.com https://www.googletagmanager.com;child-src 'self' https://*.google.com https://*.scf.usercontent.goog https://www.youtube.com https://www.youtube-nocookie.com https://docs.google.com/picker/v2/home blob: https://www.googletagmanager.com;frame-src 'self' https://*.google.com https://*.scf.usercontent.goog https://www.youtube.com https://www.youtube-nocookie.com https://docs.google.com/picker/v2/home blob: https://www.googletagmanager.com https://bid.g.doubleclick.net https://td.doubleclick.net;connect-src 'self' https://*.google.com https://*.gstatic.com https://*.google-analytics.com https://csp.withgoogle.com/csp/proto/BardChatUi https://content-push.googleapis.com/upload/ https://*.googleusercontent.com https://ogads-pa.googleapis.com/ https://*.youtube.com https://*.youtube-nocookie.com https://*.googlevideo.com data: https://static.corp.google.com/external_content/scs_corp/bard/artifacts https://*.googleapis.com https://www.googletagmanager.com;style-src 'report-sample' 'unsafe-inline' https://www.gstatic.com https://fonts.googleapis.com https://www.googletagmanager.com;font-src https://fonts.gstatic.com https://www.gstatic.com https://www.googletagmanager.com;form-action https://ogs.google.com https://onegoogle-autopush.sandbox.google.com https://onegoogle-staging.sandbox.google.com https://www.googletagmanager.com https://studio.firebase.google.com/run.api;default-src https://www.googletagmanager.com;manifest-src https://www.googletagmanager.com, require-trusted-types-for 'script';report-uri /_/BardChatUi/cspreport, script-src 'report-sample' 'nonce-sZKzqwbCiE3zuxlsAAmBOg' 'unsafe-inline' 'unsafe-eval';object-src 'none';base-uri 'self';report-uri /_/BardChatUi/cspreport;worker-src 'self' blob:, script-src 'unsafe-inline' 'unsafe-eval' blob: data: 'self' https://apis.google.com https://ssl.gstatic.com https://www.google.com https://www.googletagmanager.com https://www.gstatic.com https://www.google-analytics.com https://maps.googleapis.com https://fonts.gstatic.com https://www.youtube.com/iframe_api https://www.youtube.com/s/player/ https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com/tools/feedback/ https://www.gstatic.com/feedback/js/ https://www.gstatic.com/inproduct_help/ https://www.gstatic.com/support/content/ https://www.gstatic.com/uservoice/feedback/client/web/live/ https://www.gstatic.com/uservoice/surveys/resources/prod/js/survey/ https://support.google.com/inapp/;report-uri /_/BardChatUi/cspreport/allowlist",
+        "x-ua-compatible": "IE=edge",
+        "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "Date": "Wed, 19 Nov 2025 11:02:10 GMT",
+        "P3P": "CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"",
+        "Accept-CH": "Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version",
+        "Cross-Origin-Resource-Policy": "same-site",
+        "Permissions-Policy": "ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*",
+        "Content-Security-Policy-Report-Only": "script-src 'unsafe-inline' 'unsafe-eval' blob: data: https://www.googleadservices.com/pagead/conversion/ https://www.googletagmanager.com/gtag/js https://www.googletagmanager.com/gtag/destination https://www.google.com/js/bg/ https://www.gstatic.com/external_hosted/highlightjs/highlight.pack.js https://www.gstatic.com/monaco_editor/ https://fonts.gstatic.com/s/e/notoemoji/search/wrapper.js https://www.youtube.com/iframe_api https://translate.google.com/translate_a/element.js https://www-onepick-opensocial.googleusercontent.com/gadgets/js/rpc.js https://www.gstatic.com/_/mss/boq-one-google/_/ https://www.gstatic.com/og/_/js/ https://apis.google.com/js/api.js https://apis.google.com/js/client.js https://www.google.com/tools/feedback/chat_load.js https://www.google.com/tools/feedback/help_api.js https://www.google.com/tools/feedback/load.js https://www.google.com/tools/feedback/open.js https://www.google.com/tools/feedback/open_to_help_guide_lazy.js https://www.gstatic.com/feedback/js/ https://www.gstatic.com/feedback/js/help/prod/service/lazy.min.js https://www.gstatic.com/inproduct_help/api/main.min.js https://www.gstatic.com/inproduct_help/chatsupport/chatsupport_button_v2.js https://www.gstatic.com/inproduct_help/service/lazy.min.js https://www.gstatic.com/uservoice/feedback/client/web/live/ https://www.gstatic.com/uservoice/surveys/resources/prod/js/survey/ https://maps.googleapis.com/maps/api/js https://www.gstatic.com/_/mss/boq-bard-web/_/js/k=boq-bard-web.BardChatUi.en_US.lsvQnrcX050.2018.O/ https://apis.google.com/_/scs/abc-static/_/js/ https://maps.googleapis.com/maps-api-v3/api/js/ https://maps.googleapis.com/maps/vt https://maps.googleapis.com/maps/api/js/ https://maps.googleapis.com/maps/api/place/js/ https://www.youtube.com/s/player/ https://translate.googleapis.com/_/translate_http/_/js/;report-uri /_/BardChatUi/cspreport/fine-allowlist",
+        "Cross-Origin-Opener-Policy": "same-origin-allow-popups",
+        "reporting-endpoints": "default=\"/_/BardChatUi/web-reports?context=eJwN0GtQVAUYxnFdfV_JBhUwRkAdYtRxEBA2EUMlFFT2cs4JTCW8cEmYbCZNFhGFMVKJjFuouDBekcALCYmpTEmmqJgwsMC6u2eXRS2NS0ZBsaak9Hz4ffp_eeaZaHT2neg5ZtlczzGKxz0Khii_XoUAjiW9ihEIONCrUIIDRqA8pE9RBc2H-hQGyB_uUxSDanq_QoJHM_sVPfCZ5Qjlwrl39VQDi6L1FAZf3ddTCZyACqjv19N1cBvR0zQoXFtKh-AonIKzcAG2by2lnSDkllIM_F1fSms6W2k95MitpAfLpDbqKGwjM3x5uo2Ogc7WRrvhwoM2ugQh7xloKWwsMlASNOkN1AZBDQYKAfdBA3nBG1PayRNmu7STL8xNbCd_OJPeTt9CkHcHRcCR-R10DLoSOqh5Wwe1w9WCDmqAhIhOSoGcXzspD1KnGWk_uPkZyQNeCzLSZDhfaaRaKB8wUhVo_zFSDAiH71MMnLxyn76G4FkmWgwui03kDgFLTfQWhMNKCMs3USQYC030rNxELyHjion2QDMY4LdGEz0FL08zeYPPMjNFfmgmNTzZYabf4Yt0MxXCOaiFhRlmCgfnTDO5Qck-Mx2F874WqgXlPAslxFooBU7HWahsg4WGdltoaqaF_PLQwVproYfwZMhC_XBt2EI3wXmsTJMgaYJMaaCbLNNuqJ4m00FPmXJWyJSqkikDZkTLNAf2fiTTEeg5INMfUFIkUwVcbZKpASIey7QSvGZZ6U14HmAlxXwrvYRxgVYKjrJSKDRstlIj_JhtpVtwtsxKNeA4Y6URCL5hpVUwY4yNhsfbaASWeNgobZ6NOsJtNENlIx-4JNkoLM5GkXD5oo1-gIS_bJQCdQ4b1UPtCBpkO3XR5-Ae3kXTYUdUF2XCs51d9BKySrooGzRyF0XDptl2SoRHgXbqgReRdhq7wk5F6-x0GAay7eSA8nw7VUGiw04psBV0cPeZnVphw4RufNxNkks3rQHvzlGaDVG9o7QayoZG6SSkf6riLAjcq-KF8F2Riuuh4KiKy2DwsoodcKpbxVVw1UXNDRCjUXMstGSo2QCVu9RcDRuL1fwBLL6m5mXQd0_NAxD3RM2b4OP5Gt4O7ss1PB2aYzXcBjLYYcp6NKg-qeH8Zg0fhNAWDYfBvqcazoXjUAFzFVoOAKWo5YVQAMXwcJ2W_4RJe7Q8FWIrtRwPmfVazgbJXWDTAoHfDxE4PVLgLPBYIfBMWKASOARuqwX-GTwSBfbbIrASHDqBndIETt4r8BaozRP4EoSWCBwOqWUCZ8DaCoHjwHFB4P-g8XuBm2D5dYFXQtZNgbOhG36BllsCG6DsjsAnwNQqcBeUdQh8HJz_FdgNBl8IPAy5IwLngdcrbIZd40TOhucTRR4Fq6vI491Enuktsg9c8xf5JygNFPkYLFKKvASGQkRetUhkAaojRL4IN0SRb8PAapEHITRW5DBIhQygfSI7QfV-kWsgLEfkO0Uit0BvpchP4dVFkRV12PFK5AeQrpB4FxROlrgYDK4SG8F1jsTucN1X4kZQBEtMMKKVeKwgsTZd4mh4O0vid-CeXuI2KKyU-CB8UyNxHbi-7lTX5LjLUyxNBet9_JK2bY9P1Om26NISt6b5JyWmbvbfmZzkr0tOTU9OjVcGKoODgoJCAgKV8Z8s-B8BctcZ\"",
+        "document-policy": "include-js-call-stacks-in-crash-reports",
+        "Content-Encoding": "gzip",
+        "Server": "ESF",
+        "X-XSS-Protection": "0",
+        "X-Content-Type-Options": "nosniff",
+        "Set-Cookie": "NID=526=DxGY4LwWE6aAYijkyOvpF6D7XEv9bbsMQ-XYCuO8PALl0s_LEAx0ESbB9ly64mjZOaJvAWyahrUDYuv-FKs1DyLYHB5qr0hZTu746_t8N1n8rl78NGSsx1Qbc9GgAl8oiwnIMvzB0lFReEuoYJRqTGOpDAZukbNBRRkcfPdoQUPGjkg6VTjR9gAotN3JT-Vkoyk; expires=Thu, 21-May-2026 11:02:10 GMT; path=/; domain=.google.com; HttpOnly",
+        "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "Transfer-Encoding": "chunked"
+      },
+      "elapsed": 0.7239553928375244
+    },
+    "desktop_firefox": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "report-uri /_/BardChatUi/cspreport;script-src * 'unsafe-inline' 'unsafe-eval' blob: data: https://www.googletagmanager.com;object-src * 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com;worker-src * 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com;img-src https://*.google.com https://*.googleusercontent.com https://*.gstatic.com https://*.youtube.com https://*.youtube-nocookie.com https://*.ytimg.com https://*.ggpht.com https://bard.datacommons.org blob: data: https://*.googleapis.com https://www.googletagmanager.com https://*.googletagmanager.com https://www.google.com https://google.com https://googleads.g.doubleclick.net;media-src https://*.google.com https://*.googleusercontent.com https://*.gstatic.com https://*.youtube.com https://*.youtube-nocookie.com https://*.ytimg.com https://*.ggpht.com https://bard.datacommons.org blob: https://*.googlevideo.com https://*.googleapis.com https://www.googletagmanager.com;child-src 'self' https://*.google.com https://*.scf.usercontent.goog https://www.youtube.com https://www.youtube-nocookie.com https://docs.google.com/picker/v2/home blob: https://www.googletagmanager.com;frame-src 'self' https://*.google.com https://*.scf.usercontent.goog https://www.youtube.com https://www.youtube-nocookie.com https://docs.google.com/picker/v2/home blob: https://www.googletagmanager.com https://bid.g.doubleclick.net https://td.doubleclick.net;connect-src 'self' https://*.google.com https://*.gstatic.com https://*.google-analytics.com https://csp.withgoogle.com/csp/proto/BardChatUi https://content-push.googleapis.com/upload/ https://*.googleusercontent.com https://ogads-pa.googleapis.com/ https://*.youtube.com https://*.youtube-nocookie.com https://*.googlevideo.com data: https://static.corp.google.com/external_content/scs_corp/bard/artifacts https://*.googleapis.com https://www.googletagmanager.com;style-src 'report-sample' 'unsafe-inline' https://www.gstatic.com https://fonts.googleapis.com https://www.googletagmanager.com;font-src https://fonts.gstatic.com https://www.gstatic.com https://www.googletagmanager.com;form-action https://ogs.google.com https://onegoogle-autopush.sandbox.google.com https://onegoogle-staging.sandbox.google.com https://www.googletagmanager.com https://studio.firebase.google.com/run.api;default-src https://www.googletagmanager.com;manifest-src https://www.googletagmanager.com, script-src 'nonce-T95JZMEkEBbZ_Xg9ykdakQ' 'unsafe-inline' 'unsafe-eval';object-src 'none';base-uri 'self';report-uri /_/BardChatUi/cspreport;worker-src 'self' blob:, script-src 'unsafe-inline' 'unsafe-eval' blob: data: 'self' https://apis.google.com https://ssl.gstatic.com https://www.google.com https://www.googletagmanager.com https://www.gstatic.com https://www.google-analytics.com https://maps.googleapis.com https://fonts.gstatic.com https://www.youtube.com/iframe_api https://www.youtube.com/s/player/ https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com/tools/feedback/ https://www.gstatic.com/feedback/js/ https://www.gstatic.com/inproduct_help/ https://www.gstatic.com/support/content/ https://www.gstatic.com/uservoice/feedback/client/web/live/ https://www.gstatic.com/uservoice/surveys/resources/prod/js/survey/ https://support.google.com/inapp/;report-uri /_/BardChatUi/cspreport/allowlist, require-trusted-types-for 'script';report-uri /_/BardChatUi/cspreport",
+        "Vary": "Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site",
+        "x-ua-compatible": "IE=edge",
+        "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "Date": "Wed, 19 Nov 2025 11:02:10 GMT",
+        "P3P": "CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"",
+        "Content-Security-Policy-Report-Only": "script-src 'unsafe-inline' 'unsafe-eval' blob: data: https://www.googleadservices.com/pagead/conversion/ https://www.googletagmanager.com/gtag/js https://www.googletagmanager.com/gtag/destination https://www.google.com/js/bg/ https://www.gstatic.com/external_hosted/highlightjs/highlight.pack.js https://www.gstatic.com/monaco_editor/ https://fonts.gstatic.com/s/e/notoemoji/search/wrapper.js https://www.youtube.com/iframe_api https://translate.google.com/translate_a/element.js https://www-onepick-opensocial.googleusercontent.com/gadgets/js/rpc.js https://www.gstatic.com/_/mss/boq-one-google/_/ https://www.gstatic.com/og/_/js/ https://apis.google.com/js/api.js https://apis.google.com/js/client.js https://www.google.com/tools/feedback/chat_load.js https://www.google.com/tools/feedback/help_api.js https://www.google.com/tools/feedback/load.js https://www.google.com/tools/feedback/open.js https://www.google.com/tools/feedback/open_to_help_guide_lazy.js https://www.gstatic.com/feedback/js/ https://www.gstatic.com/feedback/js/help/prod/service/lazy.min.js https://www.gstatic.com/inproduct_help/api/main.min.js https://www.gstatic.com/inproduct_help/chatsupport/chatsupport_button_v2.js https://www.gstatic.com/inproduct_help/service/lazy.min.js https://www.gstatic.com/uservoice/feedback/client/web/live/ https://www.gstatic.com/uservoice/surveys/resources/prod/js/survey/ https://maps.googleapis.com/maps/api/js https://www.gstatic.com/_/mss/boq-bard-web/_/js/k=boq-bard-web.BardChatUi.en_US.lsvQnrcX050.2018.O/ https://apis.google.com/_/scs/abc-static/_/js/ https://maps.googleapis.com/maps-api-v3/api/js/ https://maps.googleapis.com/maps/vt https://maps.googleapis.com/maps/api/js/ https://maps.googleapis.com/maps/api/place/js/ https://www.youtube.com/s/player/ https://translate.googleapis.com/_/translate_http/_/js/;report-uri /_/BardChatUi/cspreport/fine-allowlist",
+        "Cross-Origin-Opener-Policy": "same-origin-allow-popups",
+        "Accept-CH": "Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version",
+        "Permissions-Policy": "ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*",
+        "Cross-Origin-Resource-Policy": "same-site",
+        "reporting-endpoints": "default=\"/_/BardChatUi/web-reports?context=eJwN0HlQ1HUYx3FdfR7JBhUwRkAdYtRxEBA2EUMlFFT2-P42MJXw4Egwa9QERBTGyCMyEPJAYDyRwIOExFSmJFNUTBh3gWXvRS2NIzOlWI9N6fPHa-aZef_xPPOMvOXqP9J7iHKq9xDZg24ZQ0xAj0yAY06PzAlBu3tkcnCAEyrCemXV0LK_V6aDwoFe2V5QjO-TaeD-xD5ZN3xhOkj5cPr9UqqFWbGlFAHfdJZSCRyFSmjoK6Ur4OEspXFQtLSM9sMhOA6n4CxsXF9Gm0Hkl1Ec_NNQRks67tBy2GW-Q6VgHKWl9iItGeHrE1o6DBlWLW2Fs3e1dB7CPtDRXFhZrKMUaC7VkRZCGnUUBp5PdeQDuc919NaYNvKGyW5t5A9Tk9soEE5mtdH3EOLbTlFgS2qnlg3t1AaX9rRTIyRFdVAa7Pq9gwogfZyedoJHgJ684I0QPY2GM1V6qoOKx3qqBvW_eooDcaCT4uDYxU76FkInGWg2uM02kCcEzTXQOxAJC6El2kCdEFFooGjQFxnoWYWBXkH2RQNtgxbQwR9NBnoEPt5G8gW_eUaK_thISni4yUh_wldZRiqC01AHM7ONFAmuOUbygJIdRjoEZ_xNVAfyaSZKijdRGpxIMFH5ChP1bzXR2BwTBRSgg6XORPfgYb-J-uDygImugetQM42ClBFmyoR1o82UDjXjzLTPG7PCTNkwIdZMU2D7J2Y6CN27zfQXlBSbqRIuNZupEaIemGkh-Eyy0NvwIshCsukWegXDgi0UGmOhcGhcbaEm-DnPQtfhVLmFasFx0kJOCL1qoUUwYYiVBoZbyQlzvKyUOc1K7ZFWmqCwkh9EJFgpGi6cs9JPkPTESmlQ77BSA9Q50SDPxUZfgmekjcbDphgb5cCzzTZ6BbklNsoDldlGsbBqsp2S4X6wnbrhZbSdhi6wU_EyOx2Ax3l2ckBFoZ2qIdlhpzRYDxlw65md7sCKEV34bRdp3LpoCfh2DNJkiOkZpMVQ3j9IxyDrcwXnQvB2Bc-EH4oV3AB7Dim4HJ5eULADjncpuBouuSm5EeJUSo6H1mwl66Bqi5JrYOVeJX8Esy8reR703lbyY0h4qORVsG66ijeC53wVj4eWeBVrwQx2GLMcDWqOqbiwRcX7ILxVxRGw45GK8-EIVMJUmZqDQC6peSbsgb1wb5ma_4ZR29Q8FuKr1JwIOQ1qzoPFnoINMwR_GCY4K1pwLngtEDwRZigEh8ENpeBfwStZcMBawXJwZAh2yRScul3wWqgrEHwewksER0J6ueBsWFopOAEcZwX_B00_Cm6G-VcEL4Tca4LzoAt-g9brgnVQflPwUTDcEWyD8nbBR8D1uWAPePpS8ADkOwUXgM9r3AxbhkmcBy9GSjwIFneJh3tIPNFXYj-4HCjxL1AWLPFhmCWXeA70h0m8aJbEAmqiJD4HVyWJb0B4vMQRkA7ZQDskdoGanRLXQsQuiW8WS9wKPVUSP4LX5ySW1WP_a4nvgs5dw3pwn6JhT7jir-EmkIVqmMCp1vBQoeE1azT8KaizNBwL7-Zq-D14kq_h68Uavl2qYS0UVWl4H3xXq-F6cH_Tpb7ZcYvHNDyvivcLSNmwMTE5I2NtRmby-szAlOT01YGbU1MCM1LTs1LTE-XB8tCQkJCwoGB54mcz_gd-ZtWd\"",
+        "document-policy": "include-js-call-stacks-in-crash-reports",
+        "Content-Encoding": "gzip",
+        "Server": "ESF",
+        "X-XSS-Protection": "0",
+        "X-Content-Type-Options": "nosniff",
+        "Set-Cookie": "NID=526=NX-ZPZ6FwPKgcM5h-0mNMtGF8oiUbODuazen-1LVU5KakyDACOIvfRHqWqfYGA5dUw3queKVrUBrp-6Q4-5zzK8yIA6ts3PKQiY8WPreM-HbJTGst4obkW8JknF7PCfKiRTmtw1ExPA314f-WSK-7EIdZvPH-Cy4FYc-xVbtNUh801mqrkiu4N9MH10I2Cu3xkigJjW6n35AY6o; expires=Thu, 21-May-2026 11:02:10 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=none",
+        "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "Transfer-Encoding": "chunked"
+      },
+      "elapsed": 0.7264735698699951
+    },
+    "mobile_ios": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "X-Frame-Options": "DENY",
+        "Vary": "Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site",
+        "Content-Security-Policy": "report-uri /_/BardChatUi/cspreport;script-src * 'unsafe-inline' 'unsafe-eval' blob: data: https://www.googletagmanager.com;object-src * 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com;worker-src * 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com;img-src https://*.google.com https://*.googleusercontent.com https://*.gstatic.com https://*.youtube.com https://*.youtube-nocookie.com https://*.ytimg.com https://*.ggpht.com https://bard.datacommons.org blob: data: https://*.googleapis.com https://www.googletagmanager.com https://*.googletagmanager.com https://www.google.com https://google.com https://googleads.g.doubleclick.net;media-src https://*.google.com https://*.googleusercontent.com https://*.gstatic.com https://*.youtube.com https://*.youtube-nocookie.com https://*.ytimg.com https://*.ggpht.com https://bard.datacommons.org blob: https://*.googlevideo.com https://*.googleapis.com https://www.googletagmanager.com;child-src 'self' https://*.google.com https://*.scf.usercontent.goog https://www.youtube.com https://www.youtube-nocookie.com https://docs.google.com/picker/v2/home blob: https://www.googletagmanager.com;frame-src 'self' https://*.google.com https://*.scf.usercontent.goog https://www.youtube.com https://www.youtube-nocookie.com https://docs.google.com/picker/v2/home blob: https://www.googletagmanager.com https://bid.g.doubleclick.net https://td.doubleclick.net;connect-src 'self' https://*.google.com https://*.gstatic.com https://*.google-analytics.com https://csp.withgoogle.com/csp/proto/BardChatUi https://content-push.googleapis.com/upload/ https://*.googleusercontent.com https://ogads-pa.googleapis.com/ https://*.youtube.com https://*.youtube-nocookie.com https://*.googlevideo.com data: https://static.corp.google.com/external_content/scs_corp/bard/artifacts https://*.googleapis.com https://www.googletagmanager.com;style-src 'report-sample' 'unsafe-inline' https://www.gstatic.com https://fonts.googleapis.com https://www.googletagmanager.com;font-src https://fonts.gstatic.com https://www.gstatic.com https://www.googletagmanager.com;form-action https://ogs.google.com https://onegoogle-autopush.sandbox.google.com https://onegoogle-staging.sandbox.google.com https://www.googletagmanager.com https://studio.firebase.google.com/run.api;default-src https://www.googletagmanager.com;manifest-src https://www.googletagmanager.com, require-trusted-types-for 'script';report-uri /_/BardChatUi/cspreport, script-src 'nonce-cAOogTF78A9PZsSRJ829sw' 'unsafe-inline' 'unsafe-eval';object-src 'self';base-uri 'self';report-uri /_/BardChatUi/cspreport;worker-src 'self' blob:, script-src 'unsafe-inline' 'unsafe-eval' blob: data: 'self' https://apis.google.com https://ssl.gstatic.com https://www.google.com https://www.googletagmanager.com https://www.gstatic.com https://www.google-analytics.com https://maps.googleapis.com https://fonts.gstatic.com https://www.youtube.com/iframe_api https://www.youtube.com/s/player/ https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com/tools/feedback/ https://www.gstatic.com/feedback/js/ https://www.gstatic.com/inproduct_help/ https://www.gstatic.com/support/content/ https://www.gstatic.com/uservoice/feedback/client/web/live/ https://www.gstatic.com/uservoice/surveys/resources/prod/js/survey/ https://support.google.com/inapp/;report-uri /_/BardChatUi/cspreport/allowlist",
+        "x-ua-compatible": "IE=edge",
+        "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "Date": "Wed, 19 Nov 2025 11:02:10 GMT",
+        "P3P": "CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"",
+        "Accept-CH": "Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version",
+        "Permissions-Policy": "ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*",
+        "Cross-Origin-Resource-Policy": "same-site",
+        "Content-Security-Policy-Report-Only": "script-src 'unsafe-inline' 'unsafe-eval' blob: data: https://www.googleadservices.com/pagead/conversion/ https://www.googletagmanager.com/gtag/js https://www.googletagmanager.com/gtag/destination https://www.google.com/js/bg/ https://www.gstatic.com/external_hosted/highlightjs/highlight.pack.js https://www.gstatic.com/monaco_editor/ https://fonts.gstatic.com/s/e/notoemoji/search/wrapper.js https://www.youtube.com/iframe_api https://translate.google.com/translate_a/element.js https://www-onepick-opensocial.googleusercontent.com/gadgets/js/rpc.js https://www.gstatic.com/_/mss/boq-one-google/_/ https://www.gstatic.com/og/_/js/ https://apis.google.com/js/api.js https://apis.google.com/js/client.js https://www.google.com/tools/feedback/chat_load.js https://www.google.com/tools/feedback/help_api.js https://www.google.com/tools/feedback/load.js https://www.google.com/tools/feedback/open.js https://www.google.com/tools/feedback/open_to_help_guide_lazy.js https://www.gstatic.com/feedback/js/ https://www.gstatic.com/feedback/js/help/prod/service/lazy.min.js https://www.gstatic.com/inproduct_help/api/main.min.js https://www.gstatic.com/inproduct_help/chatsupport/chatsupport_button_v2.js https://www.gstatic.com/inproduct_help/service/lazy.min.js https://www.gstatic.com/uservoice/feedback/client/web/live/ https://www.gstatic.com/uservoice/surveys/resources/prod/js/survey/ https://maps.googleapis.com/maps/api/js https://www.gstatic.com/_/mss/boq-bard-web/_/js/k=boq-bard-web.BardChatUi.en_US.lsvQnrcX050.2018.O/ https://apis.google.com/_/scs/abc-static/_/js/ https://maps.googleapis.com/maps-api-v3/api/js/ https://maps.googleapis.com/maps/vt https://maps.googleapis.com/maps/api/js/ https://maps.googleapis.com/maps/api/place/js/ https://www.youtube.com/s/player/ https://translate.googleapis.com/_/translate_http/_/js/;report-uri /_/BardChatUi/cspreport/fine-allowlist",
+        "reporting-endpoints": "default=\"/_/BardChatUi/web-reports?context=eJwN0HtM1QUUB3D96TmSDRUwJqCOmDqHgHATMVRCQeU-fr8bmEr44JGwbFMTEFHISDQyEPKBF-YTCXyQkJjCUnKKignjXi7X-76opfHITFlc05vS94_PdrbvdztnZ-wd98CxviOWzfQdITzqFRjigvoEEZwL-gQXhOztE2TgBBdURfQLtdB-sF_QQclQv7Af5JMHBDU8nDog9MJX5sNUBGc_1FA9zIvXUBR8d09D5XAcqqF5QEPXwMuloUlQurKCDsIROAln4Dxs2VRB20AsqqAEGGyuoBXdnbQa9lg6SQOmcVrSl2rJBN-e0tJRyLJpaQecv6-lixDxkY4WwtoyHaVBm0ZHWghr0VEEeD_XkR-8M6GLfGG6RxcFwszULgqG0zld9COE-espBo7N1lM12FP01L5ZT13QtE9PLZAS000ZsOf3biqGzEkG2g1eQQbygbfCDDQeztUYqAGqnhqoFlT_GCgBxEP3KAFOXL5H30P4NCPNB4_5RvKGkIVGeg-iYSlElRgpFgylRnpRZaTXkHvZSDuhHXTwR6uRnoCfr4n8IWCRiWI_NZECHm810Z_wTY6JSuEsNMDcXBNFg3ueibygvNBER-BcoJkaQDbLTCmJZsqAU0lmqlxjpsEdZpqYZ6agYuRgbTDTA3g8aKYBuDpkphvgPtJC4yBtjIWyYeN4C2VC3SQLHfDFLLdQLkyJt9AM2PWZhQ5D714L_QXlZRaqhqY2C7VAzCMLLQW_aVZ6F16GWEmYbaXXMCrUSuFxVoqElvVWaoVfCqx0E85UWqkenKet5ILw61ZaBlNG2GhotI1csMDHRtmzbKSPttEUuY0CICrJRrHgV2gjf7h0wUZXIOWZjTKg0WmjZmhwIYPdgp0K3Oz0NXhH22kybI2zUx682Gan15Bfjg4oLXaKh3XTHZQKD0Md1AuvYh00comDylY56BA8LXCQE6pKHFQLqU4HZcAmyII7LxzUCWvG9ODPPaT26KEV4N89TNMhrm-YlkPl4DCdgJwv5ZwPobvkPBd-KpNzM-w7IudKeH5Jzk442SPnWmjyUHALJCgVnAgduQrWQc12BdfB2v0K_gTmX1XwIui_q-CnkPRYwetg42wlbwHvxUqeDO2JStaCBRwwYTUyqDuh5JJ2JR-AyA4lR0HhEyUXwTGohpmCikNAJql4LuyD_fBglYr_hnE7VTwREmtUnAx5zSougOXeIhvniPxxhMg5sSLng88SkafCHLnIEXBLIfKv4JMqctAGkWXgzBLZLVvk9F0ib4CGYpEvQmS5yNGQWSlyLqysFjkJnOdF_g9afxa5DRZfE3kp5N8QuQB64DfouCmyDipvi3wcjJ0i26FSL_IxcP9XZC94_krkIShyiVwMfm9wM2wfJXEBvBwr8TBYPSUe7SXxVH-JA6ApWOIrUBEq8VGYJ5N4AQxGSLxsnsQi1MVIfAGuSxLfgshEiaMgE3KBCiV2g7rdEtdD1B6Jb5dJ3AF9NRI_gTcXJBYasf-NxPdhh6DmL0DnqWYDeM5QszdcC1RzKwjhaiZwqdQ8UlSzKkfN8fB-vpo_gLsaNWuhtEbNB-CHejU3gufbbo1tzjs84ZnuzLqAoLTNW5JTs7I2ZGWnbsoOTkvNXB-8LT0tOCs9Myc9M1kWKgsPCwuLCAmVJX8-53_DUtMc\"",
+        "document-policy": "include-js-call-stacks-in-crash-reports",
+        "Content-Encoding": "gzip",
+        "Server": "ESF",
+        "X-XSS-Protection": "0",
+        "X-Content-Type-Options": "nosniff",
+        "Set-Cookie": "NID=526=ByoYwlZNusEEs4-4u50csQ388gHvFVKD_YYK9loYx4bEQBz6DMNBGUJ3jyxC2Ukosbh7TqansLGESkxmYX7xLnf4VgU4L6FwngdHtQGt8WboTPeKtbM4t3inkpjMF7fPHcXdGGSYXWXpEMIrBMmOsRrDDGbvp9oT4WNSrWXXOB8o7a8E_fDr0YAezFrj29FdPE3h; expires=Thu, 21-May-2026 11:02:10 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=none",
+        "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "Transfer-Encoding": "chunked"
+      },
+      "elapsed": 0.7280535697937012
+    },
+    "python_bot": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "report-uri /_/BardChatUi/cspreport;script-src * 'unsafe-inline' 'unsafe-eval' blob: data: https://www.googletagmanager.com;object-src * 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com;worker-src * 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com;img-src https://*.google.com https://*.googleusercontent.com https://*.gstatic.com https://*.youtube.com https://*.youtube-nocookie.com https://*.ytimg.com https://*.ggpht.com https://bard.datacommons.org blob: data: https://*.googleapis.com https://www.googletagmanager.com https://*.googletagmanager.com https://www.google.com https://google.com https://googleads.g.doubleclick.net;media-src https://*.google.com https://*.googleusercontent.com https://*.gstatic.com https://*.youtube.com https://*.youtube-nocookie.com https://*.ytimg.com https://*.ggpht.com https://bard.datacommons.org blob: https://*.googlevideo.com https://*.googleapis.com https://www.googletagmanager.com;child-src 'self' https://*.google.com https://*.scf.usercontent.goog https://www.youtube.com https://www.youtube-nocookie.com https://docs.google.com/picker/v2/home blob: https://www.googletagmanager.com;frame-src 'self' https://*.google.com https://*.scf.usercontent.goog https://www.youtube.com https://www.youtube-nocookie.com https://docs.google.com/picker/v2/home blob: https://www.googletagmanager.com https://bid.g.doubleclick.net https://td.doubleclick.net;connect-src 'self' https://*.google.com https://*.gstatic.com https://*.google-analytics.com https://csp.withgoogle.com/csp/proto/BardChatUi https://content-push.googleapis.com/upload/ https://*.googleusercontent.com https://ogads-pa.googleapis.com/ https://*.youtube.com https://*.youtube-nocookie.com https://*.googlevideo.com data: https://static.corp.google.com/external_content/scs_corp/bard/artifacts https://*.googleapis.com https://www.googletagmanager.com;style-src 'report-sample' 'unsafe-inline' https://www.gstatic.com https://fonts.googleapis.com https://www.googletagmanager.com;font-src https://fonts.gstatic.com https://www.gstatic.com https://www.googletagmanager.com;form-action https://ogs.google.com https://onegoogle-autopush.sandbox.google.com https://onegoogle-staging.sandbox.google.com https://www.googletagmanager.com https://studio.firebase.google.com/run.api;default-src https://www.googletagmanager.com;manifest-src https://www.googletagmanager.com, require-trusted-types-for 'script';report-uri /_/BardChatUi/cspreport, script-src 'nonce-Vj98WI8f34H6PyZHzR1ygw' 'unsafe-inline' 'unsafe-eval';object-src 'none';base-uri 'self';report-uri /_/BardChatUi/cspreport;worker-src 'self' blob:",
+        "Vary": "Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site",
+        "x-ua-compatible": "IE=edge",
+        "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "Date": "Wed, 19 Nov 2025 11:02:10 GMT",
+        "P3P": "CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"",
+        "Cross-Origin-Resource-Policy": "same-site",
+        "Accept-CH": "Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version",
+        "Permissions-Policy": "ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*",
+        "Cross-Origin-Opener-Policy": "same-origin-allow-popups",
+        "reporting-endpoints": "default=\"/_/BardChatUi/web-reports?context=eJwN0HlQ1HUYx3FdfR7JCRUwRkAdYtRxEBBIxFAJBZU9vr8NSiU8OBImm0mTRUQgW6_MQBAVgfFEAg8UElOZkkxRIWHY5XDvRS2NI7NkYk03pc8fr7_efzyfeca2uPqP9R4hZnqPkD3qlTHEBvTJBDgW9MmcELS3TxYKDnBCRXi_rBpaD_bL9FAw1C8rBvnkAZkaHk4dkPXCdtNh2gNn3y-lWpgXV0qRsP9eKZXAcaiEhoFSug4ezlKaBIUryuggHIGTcAYuwKYNZbQFxJ4yiofBhjJa3tVOq2C3uZ1KwThOR52FOjLCN6d0dBQ0Vh3lwIX7OroE4R_qaSGsKdJTKjSX6kkHIY16CgfPZ3rygbcmdJA3THfrIH-YmdJBgXA6q4O-gxDfTooGW3IntW7spA64uq-TGiE5uovSYfdvXZQPGZO6aRd4BHSTF7wR0k3j4VxVN9VBxdNuqgbVP90UD-LQPYqHE1fu0bcQNs1A88FtvoE8IWihgd6BKFgKkQUGioHuQgM9rzDQK8i-YqBt0Ap6-L3JQE_Ax9tIvuC3yEgxnxhJAY83G-kP-DrLSIVwFupgbraRosA110geULLTSEfgnL-J6iB0lomSE0yUDqcSTVS-2kSDOSaamGuigHx0sNSZ6AE8HjTRAFwbMtFNcB1ppnGQOsZMmaAZb6YcqJlkpgPeZvpqiZky5GbKhilxZpoBOz4102Ho3WumP6GkyEyVcLXZTI0Q_chMS8FnmoXehhdBFpLNttArGBVsobBYC0VA4zoLNcFPWgvdgjPlFqoFx2kLOSHshoWWwZQRVhoabSUnLPCyUuYsK3VGWWmK3Ep-EJlopRi4fNFKP0Ly31ZKh3qHlRqgzokGWhcbfQWeUTaaDJtjbZQLz7fY6BXkldhIC0qzjeJg7XQ7pcDDYDv1wssYO41cYqeilXY6BE-1dnJARYGdqiHFYad02AAaaHlup3ZYPaYH_-0htVsPLQffrmGaDrF9w_QBlA8O0wnI-lLOeRC8Q85z4fsiOTfAviNyLodnl-XsgJM9cq6Gq24KboR4pYIToC1bwXqo2qrgGlhTrOCPYf41BS-C_rsKfgqJjxW8Fj6breRN4LlYyZOhNUHJOjCDHSasQoOaE0ouaFXyAYhoU3Ik7Hyi5D1wDCphpkzFQRAqqXgu7INieLBSxX_BuG0qnggJVSpOgtwGFWshzlOwYY7gj8IFZ8UIzgOvJYKnwhy54HC4rRD8C3ilCA5YLzgUHBrBLpmC03YIXg91-YIvQUSJ4CjIKBecDSsqBSeC44Lg_6DpB8HNsPi64KWQd1OwFs7AeeiBX6HtlmA9lN8RfBwM7YJtUN4p-Bi4_ivYA569FDwEe5yC88HnNbbD1lESa-HFWImHweIu8WgPiaf6SuwH1wIl_hnKgiU-CvNCJV4Ag-ESL5snsYCaaIkvwg1J4tsQkSBxJGRANtBOiV2gZpfEtRC5W-I7RRK3QV-VxE_g9UWJZfW4_1ri-5AjU_MXUDhezcWgd1dzN7jPULMnXPdXcxPIwtRM4FSpeaRQsypLzXHwbp6a34O7pWrWQWGVmg_A-Vo114P7my71zY4WntCyXbt_lF9A6sZNSSkazXpNZsqGzMDUlIx1gVvSUgM1aRlZaRlJocGhYSEhIeFBwaFJn8_5H1Lw0ik\"",
+        "document-policy": "include-js-call-stacks-in-crash-reports",
+        "Content-Encoding": "gzip",
+        "Server": "ESF",
+        "X-XSS-Protection": "0",
+        "X-Content-Type-Options": "nosniff",
+        "Set-Cookie": "NID=526=fLU-1GYUDM0o12uY-zxINvIElJ4XkTmDSVEXyyCQ4zaJzEmTvjvkzz2cuJNZJS6cfBs_zN949mT62A13nhMWgkFwWhgWT7-KOXfYjrceKmgDdk2hTg9OD4a6bIuGLjRfVNhJtoLgZ3IwWsonBQarP_f178ealyrTF_MwJDBmwWtRWhyysiI4EuZbCUZJIGJkBBGxziqIKhFTHKUS; expires=Thu, 21-May-2026 11:02:10 GMT; path=/; domain=.google.com; HttpOnly",
+        "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "Transfer-Encoding": "chunked"
+      },
+      "elapsed": 0.6489090919494629
+    },
+    "legacy_browser": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "X-Frame-Options": "DENY",
+        "Vary": "Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site",
+        "Content-Security-Policy": "report-uri /_/BardChatUi/cspreport;script-src * 'unsafe-inline' 'unsafe-eval' blob: data: https://www.googletagmanager.com;object-src * 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com;worker-src * 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com;img-src https://*.google.com https://*.googleusercontent.com https://*.gstatic.com https://*.youtube.com https://*.youtube-nocookie.com https://*.ytimg.com https://*.ggpht.com https://bard.datacommons.org blob: data: https://*.googleapis.com https://www.googletagmanager.com https://*.googletagmanager.com https://www.google.com https://google.com https://googleads.g.doubleclick.net;media-src https://*.google.com https://*.googleusercontent.com https://*.gstatic.com https://*.youtube.com https://*.youtube-nocookie.com https://*.ytimg.com https://*.ggpht.com https://bard.datacommons.org blob: https://*.googlevideo.com https://*.googleapis.com https://www.googletagmanager.com;child-src 'self' https://*.google.com https://*.scf.usercontent.goog https://www.youtube.com https://www.youtube-nocookie.com https://docs.google.com/picker/v2/home blob: https://www.googletagmanager.com;frame-src 'self' https://*.google.com https://*.scf.usercontent.goog https://www.youtube.com https://www.youtube-nocookie.com https://docs.google.com/picker/v2/home blob: https://www.googletagmanager.com https://bid.g.doubleclick.net https://td.doubleclick.net;connect-src 'self' https://*.google.com https://*.gstatic.com https://*.google-analytics.com https://csp.withgoogle.com/csp/proto/BardChatUi https://content-push.googleapis.com/upload/ https://*.googleusercontent.com https://ogads-pa.googleapis.com/ https://*.youtube.com https://*.youtube-nocookie.com https://*.googlevideo.com data: https://static.corp.google.com/external_content/scs_corp/bard/artifacts https://*.googleapis.com https://www.googletagmanager.com;style-src 'report-sample' 'unsafe-inline' https://www.gstatic.com https://fonts.googleapis.com https://www.googletagmanager.com;font-src https://fonts.gstatic.com https://www.gstatic.com https://www.googletagmanager.com;form-action https://ogs.google.com https://onegoogle-autopush.sandbox.google.com https://onegoogle-staging.sandbox.google.com https://www.googletagmanager.com https://studio.firebase.google.com/run.api;default-src https://www.googletagmanager.com;manifest-src https://www.googletagmanager.com, require-trusted-types-for 'script';report-uri /_/BardChatUi/cspreport, script-src 'nonce-pMt36GQId6e0n9GHEmr1Sg' 'unsafe-inline' 'unsafe-eval';object-src 'none';base-uri 'self';report-uri /_/BardChatUi/cspreport;worker-src 'self' blob:",
+        "x-ua-compatible": "IE=edge",
+        "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "Date": "Wed, 19 Nov 2025 11:02:10 GMT",
+        "P3P": "CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"",
+        "Cross-Origin-Opener-Policy": "same-origin-allow-popups",
+        "Permissions-Policy": "ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*",
+        "Accept-CH": "Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version",
+        "Cross-Origin-Resource-Policy": "same-site",
+        "reporting-endpoints": "default=\"/_/BardChatUi/web-reports?context=eJwN0HlQlAUYBnD99H0lJ1TAGAF1kBHHQUAgEUMlFFT2-L4NSiU8OBLKZtJkEVEYI4_IQMgDF8YTCTxQSExhUjJFxYRhF1j2XtTSOFJLijXdlJ4_fn897zzzzDvW5how1nuENNN7hPCwV2CIC-wTRHAs6BOcELynTwgDBzihIqJfqIbWA_2CDoqG-oV9IJs8IKjgwdQBoRe-NB2iAjjznoZqYV68hqLg224NlcIxqITGAQ1dAw-nhiZB8YoyOgCH4QSchvOwaUMZbQGxoIwS4O_GMlre1U6rYLe5nTRgGqelzmItGeGbk1o6AmqrlrbB-XtauggRH-hoIawp0VEatGh0pIXQJh1FgOczHfnAWxM6yBv83TooAGamdlAQnMruoO8h1LeTYsCW0kmtGzupAxr2dlITpMR0UQbs_q2LCiFzkp52gUegnrzgjVA9jYezVXqqg4qneqoG5T96SgDxYDclwPHL3fQdhE830Hxwm28gTwheaKC3IRqWQmusgbohqshAsaAvNtDzCgO9gpzLBtoOraCD35sN9Bh8vI3kC36LjLToYyM92mykP-DrbCMVwxmog7k5RooG11wjeUDpTiMdhrMBJqqDsFkmSkk0UQacTDJR-WoTDW4z0cRcEwUWIgdLnYnuw6NBEw3A1SET3QDXkWYaB2ljzJQF6vFm2gY1k8y039tMmTIz5cCUeDPNgB2fmukQ9O4x0xMoLTFTJTS0mKkJYh6aaSn4TLfQNHgRbCFhtoVewagQC4XHWSgSmtZZqBl-yrfQTThdbqFacJyykBPCr1toGUwZYaWh0VZywgIvK2XNslJntJWmyKzkB1FJVoqFxZ9Y6dIFK12BlL-slAH1Dis1Qp0TGewSbJTvYqOvwDPaRpNhc5yNcuH5Fhu9grxS3IDCbKN4WOtvp1R4EGKnXngZa6eRS-xUstJOB-Fpvp0cUFFkp2pIddgpAzaAGu48t1M7rB7Tgx_3kMqth5aDb9cw-UNc3zC9D-WDw3Qcsr-QcR6E7JDxXPihRMaNsPewjMvh2SUZO-BEj4yrocFNzk2QoJBzIrTlyFkHVVvlXANr9sn5I5h_Vc6LoP-unJ9C0iM5r4XPZit4E3guVvBkaE1UsBbMYIcJq5BBzXEFF7UqeD9Etik4CnY-VnABHIVK0DxR8ExBycEQJil5LuyFfXB_pZL_hHHblTwREquUnAy5jUrOh3hPkQ1zRP4wQuTsWJHzwGuJyFNhjkzkCLglF_kX8EoVOXC9yGHgUIvskiVy-g6R10NdocgXIbJU5GjILBc5B1ZUipwEjvMi_wfNP4rcAouvibwU8m6InA-n4Rz0wK_QdlNkHZTfFvkYGNpFtkF5p8hHwfVfkT3g2UuRh6DAKXIh-LzGdtg6SuJ8eDFW4mGwuEs82kPiqb4S-0FDkMRXoCxE4iMwLUxif5gHC2AwQuJl8yQWoSZG4gtwXZL4FkQmShwFmZADtFNiF6jZJXEtRO2W-HaJxG3QVyXxY3h9QWKhHjteS3wPsgUVb4X941VcCjp3FevBfYaKPeFagIqbQQhXMYFTqeKRooqV2SqOh3fyVPwu3NWoWAvFVeiCc7Uqrgf3N13qWxx3eMLPffeqR_kFpm3clJyqVq9XZ6VuyApKS81cF7QlPS1InZ6ZnZ6ZHBYSFh4aGhoRHBKW_Pmc_wEaf9nF\"",
+        "document-policy": "include-js-call-stacks-in-crash-reports",
+        "Content-Encoding": "gzip",
+        "Server": "ESF",
+        "X-XSS-Protection": "0",
+        "X-Content-Type-Options": "nosniff",
+        "Set-Cookie": "NID=526=rLDfZKjiARdcBbl8IoQHCJWLKhbdmdkTd6-U0-npTakZs5RIoZs-YeoT6G8LuqRFXZ7PecvgCVoMaKr0XstT9ZW6AUaJnBNrC-pUkQnTCzdmpWHSBgrdOiQv8A53eVUICDEehM6fjG5QzpSrrftBNOVFi9MPLOL_foKg_XWXGWUyzitZeqJqNlBNXRJjEtIrCsySWSgPQalVAgos; expires=Thu, 21-May-2026 11:02:10 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=none",
+        "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "Transfer-Encoding": "chunked"
+      },
+      "elapsed": 0.6883542537689209
+    }
+  },
+  "js_checks": {
+    "js_challenge": false,
+    "captcha_detected": false
+  }
+}
