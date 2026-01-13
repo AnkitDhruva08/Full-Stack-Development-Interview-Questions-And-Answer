@@ -1835,3 +1835,172 @@ services:
     environment:
       - POSTGRES_DB=myapp
       -
+
+
+
+1. Python Async & Event Loop (Foundation)
+
+Explain how asyncio event loop works internally and how FastAPI uses it.
+
+Difference between:
+
+async def + await
+
+ThreadPoolExecutor
+
+ProcessPoolExecutor
+
+When does FastAPI switch between them?
+
+What happens if you call blocking I/O inside an async endpoint? How do you detect and fix it?
+
+Explain cooperative multitasking vs preemptive in context of Uvicorn.
+
+2. FastAPI Internals
+
+How does FastAPI dependency injection actually work under the hood?
+
+How are request scopes handled in Starlette middleware?
+
+Difference between BaseHTTPMiddleware and pure ASGI middleware – when does each break?
+
+How does FastAPI generate OpenAPI schema? How would you override parts of it dynamically?
+
+How response validation works and its runtime cost.
+
+3. Pydantic (Critical in FastAPI)
+
+Pydantic v1 vs v2 architecture differences.
+
+How model_validate, root_validator, field_serializer work internally.
+
+How to optimize Pydantic for high-throughput APIs.
+
+When would you bypass Pydantic entirely?
+
+4. Database & Transactions
+
+How do you manage DB sessions safely with async SQLAlchemy in FastAPI?
+
+Explain connection pool starvation and how FastAPI can cause it.
+
+Transaction isolation levels and their impact on API design.
+
+How to implement distributed transactions (or why you shouldn’t).
+
+5. Concurrency & Race Conditions
+
+How to handle race conditions in async APIs?
+
+When would you use locks, semaphores, or Redis atomic ops?
+
+Explain idempotency in API design and how to implement it.
+
+6. Performance & Scaling
+
+Uvicorn vs Gunicorn + Uvicorn workers – what actually changes?
+
+How do you calculate optimal worker count?
+
+Explain N+1 problem at API layer.
+
+How would you benchmark and profile a FastAPI service?
+
+How does HTTP/2 or gRPC change FastAPI architecture?
+
+7. Caching & State
+
+Where to cache: client, CDN, reverse proxy, app, Redis – tradeoffs?
+
+Cache invalidation strategies.
+
+How to design per-user vs global cache safely.
+
+8. Security (Senior Level)
+
+OAuth2 vs OpenID Connect vs JWT in FastAPI.
+
+How would you implement zero-trust API security?
+
+CSRF in pure API world – myth or reality?
+
+How to prevent timing attacks in auth endpoints?
+
+How to rotate secrets without downtime.
+
+9. Architecture & Microservices
+
+Monolith vs microservices vs modular monolith in FastAPI.
+
+API Gateway vs BFF vs Service Mesh.
+
+How to design versioning without breaking clients.
+
+How to do schema evolution safely.
+
+10. Reliability & Production
+
+Graceful shutdown in FastAPI – what actually happens to in-flight requests?
+
+Circuit breaker, retry, bulkhead – how to implement in Python.
+
+How to design health checks for Kubernetes.
+
+Blue-green vs canary deploy for APIs.
+
+How to prevent cascading failures.
+
+11. Observability
+
+OpenTelemetry integration with FastAPI.
+
+How to trace a single request across 10 microservices.
+
+What metrics actually matter (p99, saturation, error budgets).
+
+12. Advanced ASGI
+
+WebSockets vs SSE vs Long Polling in FastAPI.
+
+Backpressure handling in streaming responses.
+
+How ASGI lifespan events work.
+
+How to write your own ASGI server.
+
+13. Design & Judgment
+
+Design a FastAPI system for 10M users, 100k RPS, zero downtime, global latency <100ms.
+Explain:
+
+API layer
+
+Caching
+
+DB
+
+Message queues
+
+Failure handling
+
+Security
+
+Cost control
+
+If a candidate can confidently and precisely answer these, they are:
+
+Not just a FastAPI dev
+
+A backend architect / principal engineer
+
+Do you want me to convert this into:
+
+A printable interview sheet
+
+A Google Form / MCQ version
+
+A coding + system design round
+
+A hiring scorecard
+
+A FastAPI certification exam format
