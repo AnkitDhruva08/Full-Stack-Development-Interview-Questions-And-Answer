@@ -1,0 +1,60 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Complete Database Schema" id="Pk76srYSPvCLCLjrIGFX">
+    <mxGraphModel dx="1348" dy="759" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="qyW5GLsS9P0ja3J0RKIG-41" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#2C3E50;" value="Database Schema – Bridge AI Platform" vertex="1">
+          <mxGeometry height="40" width="400" x="600" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="qyW5GLsS9P0ja3J0RKIG-42" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fontFamily=Consolas;" value="&lt;b&gt;USERS&lt;/b&gt;&#xa;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#xa;id (PK)&#xa;email (unique)&#xa;passwordHash&#xa;name&#xa;phone&#xa;passwordChangeCode&#xa;passwordChangeCodeExpiry&#xa;isVerified&#xa;verificationCode&#xa;verificationCodeExpiry&#xa;subscriptionType&#xa;billingCycle&#xa;availableCredits&#xa;lastCreditReset&#xa;createdAt&#xa;updatedAt" vertex="1">
+          <mxGeometry height="340" width="280" x="60" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="qyW5GLsS9P0ja3J0RKIG-43" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fontFamily=Consolas;" value="&lt;b&gt;SCANS&lt;/b&gt;&#xa;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#xa;id (PK)&#xa;userId (FK → USERS.id)&#xa;url&#xa;result (JSON)&#xa;status&#xa;createdAt&#xa;updatedAt" vertex="1">
+          <mxGeometry height="180" width="280" x="460" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="qyW5GLsS9P0ja3J0RKIG-44" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fontFamily=Consolas;" value="&lt;b&gt;PAYMENTS&lt;/b&gt;&#xa;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#xa;id (PK)&#xa;userId (FK → USERS.id)&#xa;provider&#xa;providerSubscriptionId&#xa;providerCustomerId&#xa;amount&#xa;currency&#xa;status&#xa;planType&#xa;billingCycle&#xa;startDate&#xa;expiryDate&#xa;createdAt&#xa;updatedAt&#xa;🔷 UNIQUE(provider, providerSubscriptionId)" vertex="1">
+          <mxGeometry height="300" width="300" x="460" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="qyW5GLsS9P0ja3J0RKIG-45" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fontFamily=Consolas;" value="&lt;b&gt;BLOGS&lt;/b&gt;&#xa;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#xa;id (PK)&#xa;title&#xa;excerpt&#xa;content&#xa;category&#xa;author&#xa;department&#xa;readTime&#xa;featured&#xa;active&#xa;imageUrl&#xa;createdAt&#xa;updatedAt" vertex="1">
+          <mxGeometry height="280" width="280" x="860" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qyW5GLsS9P0ja3J0RKIG-46" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fontFamily=Consolas;" value="&lt;b&gt;AGENT_OBSERVABILITY&lt;/b&gt;&#xa;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#xa;id (PK, UUID)&#xa;url&#xa;taskName (JSON)&#xa;instruction&#xa;expectedSchema (JSON)&#xa;beforeResult (JSON)&#xa;afterResult (JSON)&#xa;status&#xa;startedAt&#xa;completedAt&#xa;createdAt&#xa;updatedAt" vertex="1">
+          <mxGeometry height="260" width="280" x="860" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="qyW5GLsS9P0ja3J0RKIG-47" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fontFamily=Consolas;" value="&lt;b&gt;MESSAGES&lt;/b&gt;&#xa;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#xa;id (PK)&#xa;sender&#xa;content&#xa;tags&#xa;isUnknown (indexed)&#xa;createdAt" vertex="1">
+          <mxGeometry height="160" width="280" x="860" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="qyW5GLsS9P0ja3J0RKIG-48" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fontFamily=Consolas;" value="&lt;b&gt;FAQS&lt;/b&gt;&#xa;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#xa;id (PK)&#xa;question&#xa;answer&#xa;tags&#xa;active&#xa;createdAt&#xa;updatedAt" vertex="1">
+          <mxGeometry height="180" width="280" x="1220" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="qyW5GLsS9P0ja3J0RKIG-56" edge="1" parent="1" source="qyW5GLsS9P0ja3J0RKIG-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qyW5GLsS9P0ja3J0RKIG-50" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qyW5GLsS9P0ja3J0RKIG-49" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fontFamily=Consolas;" value="&lt;b&gt;GEO_AEO_READINESS&lt;/b&gt;&#xa;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#xa;id (PK)&#xa;websiteId (indexed)&#xa;status&#xa;auditSnapshotId&#xa;currentPhase&#xa;progressPercentage&#xa;startedAt&#xa;lastUpdatedAt" vertex="1">
+          <mxGeometry height="200" width="280" x="1220" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qyW5GLsS9P0ja3J0RKIG-50" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fontFamily=Consolas;" value="&lt;b&gt;GEO_AEO_PHASE_STATE&lt;/b&gt;&#xa;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#xa;id (PK)&#xa;websiteId (indexed)&#xa;phaseId&#xa;status&#xa;validationDueAt&#xa;completedAt&#xa;createdAt&#xa;lastUpdatedAt&#xa;🔷 UNIQUE(websiteId, phaseId)" vertex="1">
+          <mxGeometry height="220" width="300" x="1580" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qyW5GLsS9P0ja3J0RKIG-51" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=10;fontFamily=Consolas;" value="&lt;b&gt;GEO_AEO_TASK_STATE&lt;/b&gt;&#xa;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#xa;id (PK)&#xa;websiteId (indexed)&#xa;taskId&#xa;status&#xa;appliedAt&#xa;createdAt&#xa;updatedAt&#xa;🔷 UNIQUE(websiteId, taskId)" vertex="1">
+          <mxGeometry height="200" width="300" x="1580" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="qyW5GLsS9P0ja3J0RKIG-52" edge="1" parent="1" source="qyW5GLsS9P0ja3J0RKIG-42" style="endArrow=classic;startArrow=none;html=1;strokeColor=#ff7f50;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;endFill=1;" target="qyW5GLsS9P0ja3J0RKIG-43" value="">
+          <mxGeometry relative="1" x="0.2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qyW5GLsS9P0ja3J0RKIG-53" edge="1" parent="1" source="qyW5GLsS9P0ja3J0RKIG-42" style="endArrow=classic;startArrow=none;html=1;strokeColor=#4da6ff;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;endFill=1;" target="qyW5GLsS9P0ja3J0RKIG-44" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qyW5GLsS9P0ja3J0RKIG-54" edge="1" parent="1" source="qyW5GLsS9P0ja3J0RKIG-49" style="endArrow=open;startArrow=none;html=1;strokeWidth=1.5;dashed=1;edgeStyle=orthogonalEdgeStyle;rounded=0;labelBackgroundColor=#1e1e2f;fontColor=#cccccc;fontSize=10;" target="qyW5GLsS9P0ja3J0RKIG-50" value="&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;websiteId (logical)&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qyW5GLsS9P0ja3J0RKIG-55" edge="1" parent="1" source="qyW5GLsS9P0ja3J0RKIG-49" style="endArrow=open;startArrow=none;html=1;strokeColor=default;strokeWidth=1.5;dashed=1;edgeStyle=orthogonalEdgeStyle;rounded=0;labelBackgroundColor=#1e1e2f;fontColor=#cccccc;fontSize=10;" target="qyW5GLsS9P0ja3J0RKIG-51" value="websiteId (logical)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
