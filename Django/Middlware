@@ -1,0 +1,34 @@
+Client (Browser / Postman)
+        |
+        v
+Web Server (Nginx / Apache)
+        |
+        v
+WSGI / ASGI
+        |
+        v
+Middleware (Request Phase)
+        |
+        v
+URL Resolver (path / re_path)
+        |
+        v
+View (Business Logic)
+        |
+        v
+Model / Database
+        |
+        v
+View (Response तैयार करता है)
+        |
+        v
+Middleware (Response Phase)
+        |
+        v
+WSGI / ASGI
+        |
+        v
+Web Server
+        |
+        v
+Client (Response)
